@@ -1,7 +1,7 @@
 (() => {
   const API = 'https://azfacbrdujwadnsoasnz.supabase.co';
   const KEY = 'sb_publishable_AwJd2SUhBwiL3OMaGGhkQw_j2kycR6X';
-  const redirectUrl = `${location.origin}${location.pathname}`;
+  const redirectUrl = 'https://ttbeautylounge.pages.dev/';
   const $ = id => document.getElementById(id);
   const params = new URLSearchParams(location.hash.replace(/^#/, ''));
   const recoveryToken = params.get('access_token');
@@ -17,7 +17,7 @@
     });
     const data = await response.json().catch(() => ({}));
     if (!response.ok) { message.textContent = data.msg || data.error_description || 'Emailul de resetare nu a putut fi trimis.'; return; }
-    message.textContent = 'Ți-am trimis un email. Deschide linkul din mesaj pentru a seta o parolă nouă.';
+    message.textContent = 'Ți-am trimis un email. Deschide linkul nou din mesaj pentru a seta o parolă nouă.';
   }
 
   function showResetPassword() {
