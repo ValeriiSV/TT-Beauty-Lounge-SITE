@@ -110,4 +110,8 @@
     const refreshed = await refreshSession(session);
     if (refreshed) await showLoggedIn(refreshed); else { clearSession(); showLoggedOut(); }
   })();
+
+  const recoveryScript = document.createElement('script');
+  recoveryScript.src = 'js/password-recovery.js?v=1';
+  document.body.appendChild(recoveryScript);
 })();
