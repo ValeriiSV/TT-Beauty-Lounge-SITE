@@ -1,3 +1,4 @@
+if(!document.querySelector('link[data-tt-glass]')){const glass=document.createElement('link');glass.rel='stylesheet';glass.href='css/glass.css?v=1';glass.dataset.ttGlass='1';document.head.appendChild(glass)}
 const SUPABASE_URL = 'https://azfacbrdujwadnsoasnz.supabase.co';
 const SUPABASE_KEY = 'sb_publishable_AwJd2SUhBwiL3OMaGGhkQw_j2kycR6X';
 const TELEGRAM_BOT = 'TTbeautylounge_bot';
