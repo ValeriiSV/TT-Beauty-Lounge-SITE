@@ -1,0 +1,74 @@
+/* TT Beauty Lounge — Apple-inspired liquid glass layer */
+:root{
+  --glass-bg:rgba(255,255,255,.075);
+  --glass-bg-strong:rgba(255,255,255,.11);
+  --glass-line:rgba(255,255,255,.16);
+  --glass-line-soft:rgba(255,255,255,.09);
+  --glass-shadow:0 18px 55px rgba(0,0,0,.24),inset 0 1px 0 rgba(255,255,255,.12);
+  --glass-blur:22px;
+}
+body{
+  background:
+    radial-gradient(circle at 12% 7%,rgba(216,156,150,.13),transparent 30%),
+    radial-gradient(circle at 88% 3%,rgba(201,160,94,.16),transparent 31%),
+    linear-gradient(160deg,#1c1410,#241a15 52%,#1c1410);
+  background-attachment:fixed;
+}
+header{
+  background:linear-gradient(to bottom,rgba(28,20,16,.62),rgba(28,20,16,.14));
+  -webkit-backdrop-filter:blur(24px) saturate(165%);
+  backdrop-filter:blur(24px) saturate(165%);
+  border-bottom:1px solid rgba(255,255,255,.07);
+}
+.review-card,.review-form,.booking-form,.client-auth-card,.site-notification-form,.svc-card,.strand-frame,.about-swatch,.gallery-grid .g-item{
+  background:linear-gradient(145deg,rgba(255,255,255,.095),rgba(255,255,255,.035));
+  border-color:var(--glass-line);
+  box-shadow:var(--glass-shadow);
+  -webkit-backdrop-filter:blur(var(--glass-blur)) saturate(165%);
+  backdrop-filter:blur(var(--glass-blur)) saturate(165%);
+}
+.review-card,.review-form,.booking-form,.client-auth-card,.site-notification-form,.svc-card,.strand-frame{position:relative;overflow:hidden}
+.review-card::before,.review-form::before,.booking-form::before,.client-auth-card::before,.site-notification-form::before,.svc-card::before,.strand-frame::before{
+  content:"";position:absolute;inset:0;pointer-events:none;border-radius:inherit;
+  background:linear-gradient(135deg,rgba(255,255,255,.13),transparent 34%,rgba(255,255,255,.025) 70%,rgba(255,255,255,.08));opacity:.72;
+}
+.review-card>*,.review-form>*,.booking-form>*,.client-auth-card>*,.site-notification-form>*,.svc-card>*,.strand-frame>*{position:relative;z-index:1}
+.services-grid{background:rgba(255,255,255,.06);border-color:var(--glass-line);gap:1px}
+.svc-card:hover{background:linear-gradient(145deg,rgba(255,255,255,.14),rgba(255,255,255,.055));transform:translateY(-1px)}
+.btn-ghost,.auth-tabs button,.social-icon,.site-language button,.strand-frame .tag{
+  background:rgba(255,255,255,.055)!important;
+  border-color:rgba(255,255,255,.14)!important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.08),0 8px 24px rgba(0,0,0,.12);
+  -webkit-backdrop-filter:blur(16px) saturate(150%);
+  backdrop-filter:blur(16px) saturate(150%);
+}
+.btn-primary,.auth-tabs button.active{
+  background:linear-gradient(145deg,rgba(227,196,140,.96),rgba(201,160,94,.84))!important;
+  box-shadow:0 10px 28px rgba(201,160,94,.18),inset 0 1px 0 rgba(255,255,255,.42);
+}
+.field input,.field select,.field textarea{
+  background:rgba(13,10,9,.44);
+  border-color:rgba(255,255,255,.13);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.04);
+  -webkit-backdrop-filter:blur(14px);
+  backdrop-filter:blur(14px);
+}
+.field input:focus-visible,.field select:focus-visible,.field textarea:focus-visible{
+  border-color:rgba(227,196,140,.72);box-shadow:0 0 0 3px rgba(201,160,94,.11),inset 0 1px 0 rgba(255,255,255,.05)
+}
+.location-tag{border-radius:14px!important}
+.logo video{box-shadow:0 10px 30px rgba(0,0,0,.30),0 0 0 1px rgba(255,255,255,.12)}
+.sect-alt{background:rgba(255,255,255,.018)}
+.success-box.show{background:rgba(127,211,164,.09);border:1px solid rgba(127,211,164,.24);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px)}
+@supports not ((-webkit-backdrop-filter:blur(1px)) or (backdrop-filter:blur(1px))){
+  header{background:rgba(28,20,16,.96)}
+  .review-card,.review-form,.booking-form,.client-auth-card,.site-notification-form,.svc-card,.strand-frame{background:var(--surface)}
+}
+@media(max-width:760px){
+  :root{--glass-blur:18px}
+  header{background:rgba(28,20,16,.66)}
+  .review-card,.review-form,.booking-form,.client-auth-card,.svc-card{box-shadow:0 12px 34px rgba(0,0,0,.20),inset 0 1px 0 rgba(255,255,255,.10)}
+}
+@media(prefers-reduced-transparency:reduce){
+  header,.review-card,.review-form,.booking-form,.client-auth-card,.site-notification-form,.svc-card,.strand-frame{-webkit-backdrop-filter:none;backdrop-filter:none;background:rgba(44,32,25,.96)}
+}
