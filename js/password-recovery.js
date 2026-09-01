@@ -84,3 +84,19 @@
     setTimeout(injectForgotButton, 250);
   }
 })();
+
+// TT Beauty Club WOW Suite loader
+(() => {
+  if (!document.querySelector('link[href*="wow-suite.css"]')) {
+    const link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.href = 'css/wow-suite.css?v=1';
+    document.head.appendChild(link);
+  }
+  if (!document.querySelector('script[src*="wow-suite.js"]')) {
+    const script = document.createElement('script');
+    script.src = 'js/wow-suite.js?v=1';
+    script.defer = true;
+    document.body.appendChild(script);
+  }
+})();
