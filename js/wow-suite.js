@@ -13,3 +13,14 @@ async function checkGift(){const code=$('#siteGiftCode')?.value.trim();if(!code)
 function wirePersonal(c){$('[data-share-ref]')?.addEventListener('click',async()=>{const text=`TT Beauty Lounge · codul meu: ${c.referral_code}`;if(navigator.share)await navigator.share({title:'TT Beauty Lounge',text,url:location.origin});else{await navigator.clipboard.writeText(`${text} ${location.origin}`);alert('Cod copiat')}});$('[data-site-consult]')?.addEventListener('click',async()=>{const goal=$('#siteGoal').value.trim(),history=$('#siteHistory').value.trim();if(!goal)return;const rec=smart(goal,history);$('#siteConsultResult').innerHTML=`<div class="wow-result"><b>${esc(rec.service)}</b><br>${esc(rec.duration)}<br>${esc(rec.note)}</div>`;await api('client_consultations',{method:'POST',body:{client_id:c.id,client_user_id:window.ttClientUser.id,desired_result:goal,hair_history:history||null,recommendation:rec},prefer:'return=minimal'})});$('[data-site-wait]')?.addEventListener('click',async()=>{await api('waitlist',{method:'POST',body:{client_id:c.id,client_user_id:window.ttClientUser.id,name:c.full_name,phone:c.phone,email:c.email,service:$('#siteWaitService').value,preferred_date:$('#siteWaitDate').value||null},prefer:'return=minimal'});alert('Te-am adăugat în lista de așteptare.')});$('[data-site-mood]')?.addEventListener('click',async()=>{await api('client_moodboard',{method:'POST',body:{client_id:c.id,client_user_id:window.ttClientUser.id,image_url:$('#siteMoodUrl').value.trim()||null,note:$('#siteMoodNote').value.trim()||null},prefer:'return=minimal'});await loadPersonal()});$('[data-site-profile]')?.addEventListener('click',async()=>{await api(`clients?id=eq.${c.id}`,{method:'PATCH',body:{preferred_style:$('#siteStyle').value.trim()||null,allergies:$('#siteAllergies').value.trim()||null,updated_at:new Date().toISOString()},prefer:'return=minimal'});alert('Beauty Profile salvat.')});document.querySelectorAll('[data-site-gift]').forEach(b=>b.addEventListener('click',checkGift));$('[data-site-notif]')?.addEventListener('click',async()=>alert(await Notification.requestPermission()==='granted'?'Notificări activate.':'Permisiune neacordată.'))}
 section();document.addEventListener('click',e=>{if(e.target.closest('[data-auth-mode="login"],#clientAuthSubmit'))setTimeout(loadPersonal,900)});window.TTBeautyClub={reload:loadPersonal};
 })();
+
+// Moldova 2026 privacy notice
+(()=>{
+  const apply=()=>{
+    const consent=document.querySelector('.privacy-consent span');
+    if(consent) consent.innerHTML='Am luat cunoștință de <a href="politica-confidentialitate.html" target="_blank" rel="noopener">Politica de confidențialitate</a> și înțeleg că datele necesare programării sunt prelucrate pentru furnizarea serviciului.';
+  };
+  apply();
+  setTimeout(apply,300);
+  document.addEventListener('tt-language-change',apply);
+})();
