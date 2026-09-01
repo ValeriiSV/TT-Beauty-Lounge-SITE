@@ -212,3 +212,7 @@ async function uploadBookingPhoto(file, bookingCode) {
         button.textContent = 'Trimite cererea';
       });
   });
+
+// TT Beauty WOW Suite loader
+if(!document.querySelector('link[data-tt-wow]')){const w=document.createElement('link');w.rel='stylesheet';w.href='css/wow-suite.css?v=1';w.dataset.ttWow='1';document.head.appendChild(w)}
+if(!document.querySelector('script[data-tt-wow]')){const s=document.createElement('script');s.src='js/wow-suite.js?v=1';s.defer=true;s.dataset.ttWow='1';document.body.appendChild(s)}
