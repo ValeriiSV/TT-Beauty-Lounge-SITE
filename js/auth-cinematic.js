@@ -1,4 +1,3 @@
-
 (function(){
   function avatarMarkup(){
     return '<div class="tt-auth-brand"><b>TT</b><span>Beauty Lounge</span></div>'+
