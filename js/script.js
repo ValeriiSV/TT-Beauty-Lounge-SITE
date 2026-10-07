@@ -196,7 +196,8 @@ async function uploadBookingPhoto(file, bookingCode) {
         success.classList.add('show');
         window.ttReloadClientBookings?.();
         form.reset();
-        bookingDate.min = `${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, '0')}-${String(today.getDate()).padStart(2, '0')}`;
+        const now = new Date();
+        bookingDate.min = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}-${String(now.getDate()).padStart(2, '0')}`;
         bookingTime.disabled = true;
         bookingTime.innerHTML = '<option value="">Alege mai întâi serviciul și data</option>';
         availabilityMessage.textContent = '';
