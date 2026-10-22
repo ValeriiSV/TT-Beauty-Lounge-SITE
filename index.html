@@ -54,7 +54,7 @@
   ]
 }
 </script>
-<link rel="stylesheet" href="css/logo-refresh.css?v=1">\n<link rel="icon" type="image/webp" href="images/tt-beauty-lounge-logo-new.webp?v=3">\n<link rel="stylesheet" href="css/hero-wow.css?v=1">\n</head>
+<link rel="stylesheet" href="css/logo-refresh.css?v=1">\n<link rel="icon" type="image/webp" href="images/tt-beauty-lounge-logo-new.webp?v=3">\n<link rel="stylesheet" href="css/hero-wow.css?v=1">\n<link rel="stylesheet" href="css/gallery-wow.css?v=1">\n</head>
 <body>
 
 <header>
@@ -190,16 +190,53 @@
 <section class="sect" id="galerie">
   <div class="wrap">
     <div class="sect-head">
-      <p class="eyebrow">Portofoliu</p>
-      <h2>Galerie</h2>
+      <div>
+        <p class="eyebrow">Portofoliu</p>
+        <h2>Transformări în mișcare</h2>
+      </div>
+      <p class="gallery-lead">Culoare, textură și styling surprinse exact așa cum arată în realitate. Treci cu mouse-ul peste un clip pentru preview sau deschide-l pentru vizualizare completă.</p>
     </div>
-    <div class="gallery-grid" id="videoGallery">
-      <figure class="g-item"><video controls playsinline preload="metadata" aria-label="Video din salon"><source src="videos/coafura-eveniment-1.mp4" type="video/mp4"></video></figure>
-      <figure class="g-item"><video controls playsinline preload="metadata" aria-label="Video din salon"><source src="videos/vopsit-1.mp4" type="video/mp4"></video></figure>
-      <figure class="g-item"><video controls playsinline preload="metadata" aria-label="Video din salon"><source src="videos/vopsit-2.mp4" type="video/mp4"></video></figure>
-      <figure class="g-item"><video controls playsinline preload="metadata" aria-label="Video din salon"><source src="videos/styling-1.mp4" type="video/mp4"></video></figure>
-      <figure class="g-item"><video controls playsinline preload="metadata" aria-label="Video din salon"><source src="videos/coafura-eveniment-2.mp4" type="video/mp4"></video></figure>
-      <figure class="g-item"><video controls playsinline preload="metadata" aria-label="Video din salon"><source src="videos/styling-2.mp4" type="video/mp4"></video></figure>
+
+    <div class="gallery-grid gallery-bento" id="videoGallery">
+      <figure class="g-item gallery-featured" data-title="Coafură de eveniment" data-tag="Styling">
+        <video playsinline muted preload="metadata" aria-label="Coafură de eveniment"><source src="videos/coafura-eveniment-1.mp4" type="video/mp4"></video>
+        <div class="gallery-card-top"><span class="gallery-chip">Styling</span><span class="gallery-index">01</span></div>
+        <figcaption class="gallery-card-bottom"><div><h3>Coafură de eveniment</h3><p>Textură, volum și finisaj elegant.</p></div><button type="button" class="gallery-play" aria-label="Redă Coafură de eveniment"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></button></figcaption>
+      </figure>
+
+      <figure class="g-item" data-title="Transformare de culoare" data-tag="Color">
+        <video playsinline muted preload="metadata" aria-label="Transformare de culoare"><source src="videos/vopsit-1.mp4" type="video/mp4"></video>
+        <div class="gallery-card-top"><span class="gallery-chip">Color</span><span class="gallery-index">02</span></div>
+        <figcaption class="gallery-card-bottom"><div><h3>Transformare de culoare</h3><p>Nuanțe lucrate în profunzime.</p></div><button type="button" class="gallery-play" aria-label="Redă Transformare de culoare"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></button></figcaption>
+      </figure>
+
+      <figure class="g-item" data-title="Vopsire în tehnică" data-tag="Color">
+        <video playsinline muted preload="metadata" aria-label="Vopsire în tehnică"><source src="videos/vopsit-2.mp4" type="video/mp4"></video>
+        <div class="gallery-card-top"><span class="gallery-chip">Color</span><span class="gallery-index">03</span></div>
+        <figcaption class="gallery-card-bottom"><div><h3>Vopsire în tehnică</h3><p>Reflexii, lumină și tranziții curate.</p></div><button type="button" class="gallery-play" aria-label="Redă Vopsire în tehnică"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></button></figcaption>
+      </figure>
+
+      <figure class="g-item" data-title="Styling & finish" data-tag="Hair">
+        <video playsinline muted preload="metadata" aria-label="Styling și finish"><source src="videos/styling-1.mp4" type="video/mp4"></video>
+        <div class="gallery-card-top"><span class="gallery-chip">Hair</span><span class="gallery-index">04</span></div>
+        <figcaption class="gallery-card-bottom"><div><h3>Styling & finish</h3><p>Mișcare naturală și luciu.</p></div><button type="button" class="gallery-play" aria-label="Redă Styling și finish"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></button></figcaption>
+      </figure>
+
+      <figure class="g-item" data-title="Look de seară" data-tag="Styling">
+        <video playsinline muted preload="metadata" aria-label="Look de seară"><source src="videos/coafura-eveniment-2.mp4" type="video/mp4"></video>
+        <div class="gallery-card-top"><span class="gallery-chip">Styling</span><span class="gallery-index">05</span></div>
+        <figcaption class="gallery-card-bottom"><div><h3>Look de seară</h3><p>Eleganță construită pentru eveniment.</p></div><button type="button" class="gallery-play" aria-label="Redă Look de seară"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></button></figcaption>
+      </figure>
+
+      <figure class="g-item" data-title="Finisaj și textură" data-tag="Hair">
+        <video playsinline muted preload="metadata" aria-label="Finisaj și textură"><source src="videos/styling-2.mp4" type="video/mp4"></video>
+        <div class="gallery-card-top"><span class="gallery-chip">Hair</span><span class="gallery-index">06</span></div>
+        <figcaption class="gallery-card-bottom"><div><h3>Finisaj și textură</h3><p>Detaliile care închid look-ul.</p></div><button type="button" class="gallery-play" aria-label="Redă Finisaj și textură"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></button></figcaption>
+      </figure>
+    </div>
+
+    <div class="gallery-more-row">
+      <button type="button" class="gallery-more-btn" data-gallery-more>Vezi toate transformările</button>
     </div>
   </div>
 </section>
@@ -441,5 +478,5 @@
 <script src="js/account.js?v=5"></script>
 <script src="js/script.js?v=8"></script>
 
-<script src="js/hero-wow.js?v=1" defer></script>\n</body>
+<script src="js/hero-wow.js?v=1" defer></script>\n<script src="js/gallery-wow.js?v=1" defer></script>\n</body>
 </html>
