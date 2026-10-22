@@ -1,0 +1,323 @@
+/* TT Beauty Lounge — premium hero experience */
+.hero{
+  position:relative;
+  overflow:hidden;
+  isolation:isolate;
+}
+.hero::before{
+  content:"";
+  position:absolute;
+  inset:-20% -10% auto 45%;
+  height:70%;
+  background:radial-gradient(circle,rgba(201,166,107,.13),transparent 66%);
+  filter:blur(20px);
+  pointer-events:none;
+  z-index:-1;
+}
+.hero .wrap{
+  align-items:center;
+}
+.hero-copy{
+  position:relative;
+  z-index:2;
+}
+.hero-copy .hero-personal-badge{
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  margin:0 0 16px;
+  padding:8px 12px;
+  border:1px solid rgba(201,166,107,.24);
+  border-radius:999px;
+  background:rgba(55,37,29,.32);
+  color:var(--gold-light);
+  font-size:11px;
+  font-weight:800;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+  -webkit-backdrop-filter:blur(14px);
+  backdrop-filter:blur(14px);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.05);
+}
+.hero-copy .hero-personal-badge::before{
+  content:"";
+  width:6px;
+  height:6px;
+  border-radius:50%;
+  background:var(--gold-light);
+  box-shadow:0 0 14px rgba(201,166,107,.85);
+}
+.hero-copy .cta-row .btn-primary{
+  position:relative;
+  overflow:hidden;
+  isolation:isolate;
+  box-shadow:0 14px 36px rgba(201,166,107,.12);
+}
+.hero-copy .cta-row .btn-primary::after{
+  content:"";
+  position:absolute;
+  inset:-60% auto -60% -45%;
+  width:30%;
+  transform:rotate(18deg);
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.55),transparent);
+  animation:heroBtnShimmer 5.6s ease-in-out 1.8s infinite;
+  pointer-events:none;
+}
+.hero-luxe-card{
+  --rx:0deg;
+  --ry:0deg;
+  position:relative;
+  min-height:520px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  padding:34px 34px 26px;
+  overflow:hidden;
+  border:1px solid rgba(225,198,151,.25);
+  border-radius:28px;
+  background:
+    radial-gradient(circle at 50% 34%,rgba(201,166,107,.16),transparent 31%),
+    linear-gradient(145deg,rgba(62,42,32,.72),rgba(37,25,20,.74));
+  -webkit-backdrop-filter:blur(24px) saturate(135%);
+  backdrop-filter:blur(24px) saturate(135%);
+  box-shadow:
+    0 28px 70px rgba(0,0,0,.32),
+    inset 0 1px 0 rgba(255,255,255,.08),
+    inset 0 -1px 0 rgba(201,166,107,.05);
+  transform:perspective(1000px) rotateX(var(--rx)) rotateY(var(--ry));
+  transition:transform .18s ease-out,border-color .3s ease,box-shadow .3s ease;
+  will-change:transform;
+}
+.hero-luxe-card:hover{
+  border-color:rgba(225,198,151,.40);
+  box-shadow:
+    0 34px 80px rgba(0,0,0,.38),
+    0 0 55px rgba(201,166,107,.07),
+    inset 0 1px 0 rgba(255,255,255,.1);
+}
+.hero-luxe-card::before{
+  content:"";
+  position:absolute;
+  inset:-35% auto -35% -35%;
+  width:28%;
+  background:linear-gradient(90deg,transparent,rgba(255,241,212,.14),transparent);
+  transform:rotate(17deg);
+  animation:heroGlassSweep 7.5s ease-in-out 1.4s infinite;
+  pointer-events:none;
+  z-index:5;
+}
+.hero-luxe-card::after{
+  content:"";
+  position:absolute;
+  width:310px;
+  height:310px;
+  border-radius:50%;
+  background:radial-gradient(circle,rgba(210,172,104,.18),rgba(210,172,104,.04) 48%,transparent 71%);
+  filter:blur(9px);
+  top:78px;
+  left:50%;
+  transform:translateX(-50%);
+  pointer-events:none;
+}
+.hero-logo-stage{
+  position:relative;
+  z-index:3;
+  width:min(320px,76%);
+  aspect-ratio:1;
+  display:grid;
+  place-items:center;
+  margin:12px auto 22px;
+}
+.hero-logo-stage::before,
+.hero-logo-stage::after{
+  content:"";
+  position:absolute;
+  border-radius:50%;
+  pointer-events:none;
+}
+.hero-logo-stage::before{
+  inset:-11%;
+  border:1px solid rgba(217,184,128,.16);
+  box-shadow:0 0 70px rgba(201,166,107,.09);
+  animation:heroOrbitPulse 5s ease-in-out infinite;
+}
+.hero-logo-stage::after{
+  inset:-3%;
+  border:1px solid rgba(255,235,198,.12);
+  background:radial-gradient(circle,rgba(201,166,107,.09),transparent 67%);
+}
+.hero-logo-medallion{
+  position:relative;
+  z-index:2;
+  width:100%;
+  aspect-ratio:1;
+  display:grid;
+  place-items:center;
+  border-radius:50%;
+  animation:heroLogoFloat 5.4s ease-in-out infinite;
+  filter:drop-shadow(0 22px 28px rgba(0,0,0,.42)) drop-shadow(0 0 28px rgba(201,166,107,.13));
+}
+.hero-logo-medallion img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  transform:scale(1.12);
+  clip-path:circle(43.5% at 50% 50%);
+  border-radius:50%;
+  user-select:none;
+  -webkit-user-drag:none;
+}
+.hero-badges{
+  position:relative;
+  z-index:4;
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:9px;
+  width:100%;
+  margin-bottom:18px;
+}
+.hero-mini-badge{
+  display:inline-flex;
+  align-items:center;
+  min-height:36px;
+  padding:8px 12px;
+  border:1px solid rgba(225,198,151,.17);
+  border-radius:999px;
+  background:rgba(28,18,14,.46);
+  color:#ead8bd;
+  font-size:11.5px;
+  font-weight:700;
+  letter-spacing:.01em;
+  -webkit-backdrop-filter:blur(14px);
+  backdrop-filter:blur(14px);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.04);
+}
+.hero-location-pill{
+  position:relative!important;
+  inset:auto!important;
+  z-index:4;
+  width:min(100%,440px);
+  display:flex!important;
+  justify-content:center;
+  align-items:center;
+  min-height:44px;
+  margin-top:auto;
+  padding:10px 16px!important;
+  border:1px solid rgba(225,198,151,.14)!important;
+  border-radius:999px!important;
+  background:rgba(63,40,31,.58)!important;
+  -webkit-backdrop-filter:blur(18px);
+  backdrop-filter:blur(18px);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.04),0 12px 24px rgba(0,0,0,.14);
+  font-size:12px!important;
+}
+.hero-hair{
+  position:absolute;
+  z-index:1;
+  display:block;
+  width:310px;
+  height:155px;
+  border-top:1px solid rgba(219,181,115,.22);
+  border-radius:50%;
+  opacity:.7;
+  pointer-events:none;
+  filter:drop-shadow(0 0 6px rgba(201,166,107,.08));
+}
+.hero-hair.h1{left:-65px;top:125px;transform:rotate(37deg);animation:heroHairA 8s ease-in-out infinite}
+.hero-hair.h2{right:-92px;top:245px;transform:rotate(-42deg) scale(.82);animation:heroHairB 9.5s ease-in-out infinite}
+.hero-hair.h3{left:36px;bottom:75px;transform:rotate(18deg) scale(.72);opacity:.42;animation:heroHairA 11s ease-in-out -2s infinite}
+.hero-particle{
+  position:absolute;
+  z-index:2;
+  width:4px;
+  height:4px;
+  border-radius:50%;
+  background:#d9b473;
+  box-shadow:0 0 14px rgba(217,180,115,.9);
+  opacity:.55;
+  pointer-events:none;
+  animation:heroParticle 5.8s ease-in-out infinite;
+}
+.hero-particle.p1{top:16%;left:17%;animation-delay:.2s}
+.hero-particle.p2{top:29%;right:16%;width:3px;height:3px;animation-delay:1.6s}
+.hero-particle.p3{bottom:31%;left:13%;width:3px;height:3px;animation-delay:2.8s}
+.hero-particle.p4{bottom:18%;right:20%;animation-delay:4s}
+.hero-copy,
+.hero-luxe-card{
+  opacity:0;
+}
+.hero.hero-ready .hero-copy{
+  animation:heroCopyIn .9s cubic-bezier(.2,.75,.25,1) forwards;
+}
+.hero.hero-ready .hero-luxe-card{
+  animation:heroCardIn 1.05s .12s cubic-bezier(.18,.78,.24,1) forwards;
+}
+@keyframes heroCopyIn{
+  from{opacity:0;transform:translate3d(-36px,10px,0);filter:blur(8px)}
+  to{opacity:1;transform:none;filter:blur(0)}
+}
+@keyframes heroCardIn{
+  from{opacity:0;transform:translate3d(48px,12px,0) scale(.975);filter:blur(10px)}
+  to{opacity:1;transform:perspective(1000px) rotateX(var(--rx)) rotateY(var(--ry));filter:blur(0)}
+}
+@keyframes heroLogoFloat{
+  0%,100%{transform:translateY(0) rotateZ(0deg)}
+  50%{transform:translateY(-9px) rotateZ(.35deg)}
+}
+@keyframes heroOrbitPulse{
+  0%,100%{transform:scale(1);opacity:.55}
+  50%{transform:scale(1.025);opacity:.9}
+}
+@keyframes heroGlassSweep{
+  0%,22%{left:-40%;opacity:0}
+  35%{opacity:.7}
+  58%{left:125%;opacity:0}
+  100%{left:125%;opacity:0}
+}
+@keyframes heroBtnShimmer{
+  0%,70%{left:-45%;opacity:0}
+  78%{opacity:.7}
+  92%{left:120%;opacity:0}
+  100%{left:120%;opacity:0}
+}
+@keyframes heroHairA{
+  0%,100%{translate:0 0;rotate:0deg}
+  50%{translate:12px -5px;rotate:2deg}
+}
+@keyframes heroHairB{
+  0%,100%{translate:0 0;rotate:0deg}
+  50%{translate:-12px 7px;rotate:-2deg}
+}
+@keyframes heroParticle{
+  0%,100%{opacity:.16;transform:translateY(5px) scale(.7)}
+  50%{opacity:.9;transform:translateY(-10px) scale(1.2)}
+}
+@media(max-width:900px){
+  .hero-luxe-card{
+    min-height:430px;
+    padding:24px 20px 20px;
+  }
+  .hero-logo-stage{width:min(260px,66%);margin-top:4px}
+  .hero-badges{margin-bottom:13px}
+  .hero-location-pill{font-size:11px!important}
+}
+@media(max-width:560px){
+  .hero-luxe-card{
+    min-height:385px;
+    border-radius:24px;
+    padding:20px 16px 16px;
+  }
+  .hero-logo-stage{width:min(230px,72%);margin-bottom:12px}
+  .hero-mini-badge{font-size:10.5px;padding:7px 10px;min-height:32px}
+  .hero-location-pill{min-height:40px;padding:9px 12px!important}
+  .hero-copy .hero-personal-badge{font-size:9.5px;letter-spacing:.08em}
+}
+@media(pointer:coarse){
+  .hero-luxe-card{transform:none!important}
+}
+@media(prefers-reduced-motion:reduce){
+  .hero-copy,.hero-luxe-card{opacity:1!important;animation:none!important;filter:none!important;transform:none!important}
+  .hero-logo-medallion,.hero-logo-stage::before,.hero-luxe-card::before,.hero-particle,.hero-hair,.hero-copy .cta-row .btn-primary::after{animation:none!important}
+}
