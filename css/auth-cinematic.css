@@ -466,3 +466,77 @@
     animation:none!important;
   }
 }
+/* v3 — more realistic stylist + correct password eye-cover */
+.tt-auth-avatar-wrap{width:min(292px,90%)}
+.tt-auth-avatar{filter:drop-shadow(0 22px 28px rgba(0,0,0,.36))}
+.tt-auth-avatar .tt-face-group,
+.tt-auth-avatar .tt-hair-main,
+.tt-auth-avatar .tt-torso{
+  transform-box:fill-box;
+  transform-origin:center;
+}
+.tt-auth-avatar .tt-chest{
+  transform-box:fill-box;
+  transform-origin:center bottom;
+  animation:ttBreath 4.6s ease-in-out infinite;
+}
+.tt-auth-avatar .tt-eye-l,
+.tt-auth-avatar .tt-eye-r{
+  transform-box:fill-box;
+  transform-origin:center;
+  animation:ttBlink 6.6s ease-in-out infinite;
+}
+.tt-auth-avatar .tt-eye-r{animation-delay:.04s}
+.tt-auth-avatar .tt-cover-hands{
+  opacity:0;
+  transform:translateY(22px) scale(.92);
+  transform-origin:center;
+  transition:opacity .24s ease,transform .42s cubic-bezier(.18,.78,.22,1);
+}
+.tt-auth-avatar .tt-normal-arms{
+  opacity:1;
+  transition:opacity .18s ease;
+}
+.tt-auth-character.is-password .tt-normal-arms{
+  opacity:.12;
+}
+.tt-auth-character.is-password .tt-cover-hands{
+  opacity:1;
+  transform:translateY(0) scale(1);
+}
+.tt-auth-character.is-password .tt-eye-l,
+.tt-auth-character.is-password .tt-eye-r{
+  animation:none!important;
+  transform:scaleY(.35);
+}
+.tt-auth-character.is-password .tt-arm-l,
+.tt-auth-character.is-password .tt-arm-r{
+  transform:none!important;
+  animation:none!important;
+}
+.tt-auth-avatar .tt-earring{
+  transform-box:fill-box;
+  transform-origin:50% 0%;
+  animation:ttEarring 3.2s ease-in-out infinite;
+}
+.tt-auth-avatar .tt-hair-highlight{
+  opacity:.38;
+}
+.tt-auth-avatar .tt-cheek{
+  opacity:.34;
+}
+@keyframes ttBreath{
+  0%,100%{transform:scaleY(1)}
+  50%{transform:scaleY(1.012)}
+}
+@keyframes ttBlink{
+  0%,46%,50%,100%{transform:scaleY(1)}
+  48%{transform:scaleY(.12)}
+}
+@keyframes ttEarring{
+  0%,100%{transform:rotate(-2deg)}
+  50%{transform:rotate(3deg)}
+}
+@media(max-width:780px){
+  .tt-auth-avatar-wrap{width:145px}
+}
