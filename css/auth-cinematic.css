@@ -1,137 +1,238 @@
 :root{
   --tt-auth-ink:#241a15;
+  --tt-auth-deep:#160d09;
   --tt-auth-gold:#c9a66b;
-  --tt-auth-blush:#d89c96;
+  --tt-auth-gold2:#f1d79b;
   --tt-auth-rose:#b76d73;
   --tt-auth-ivory:#fff8ef;
-  --tt-auth-cream:#f0dfcf;
+  --tt-auth-cream:#f4eadf;
 }
 .tt-auth-cinematic{
   position:relative;
+  overflow:visible!important;
+  isolation:isolate;
+  background:transparent!important;
+  border:0!important;
+  padding:0!important;
+}
+.tt-auth-layout{
+  position:relative;
+  display:grid;
+  grid-template-columns:minmax(250px,.9fr) minmax(340px,1.1fr);
+  gap:0;
+  min-height:560px;
+  align-items:stretch;
   overflow:hidden;
+  border:1px solid rgba(221,187,126,.24);
+  border-radius:30px;
+  background:
+    radial-gradient(circle at 18% 30%,rgba(183,109,115,.18),transparent 28%),
+    radial-gradient(circle at 86% 78%,rgba(201,166,107,.13),transparent 30%),
+    linear-gradient(135deg,rgba(44,27,20,.97),rgba(24,14,10,.985));
+  box-shadow:
+    0 32px 80px rgba(0,0,0,.34),
+    inset 0 1px 0 rgba(255,255,255,.06),
+    inset 0 -1px 0 rgba(201,166,107,.05);
   isolation:isolate;
 }
-.tt-auth-cinematic::before,
-.tt-auth-cinematic::after{
+.tt-auth-layout::before{
+  content:"TT";
+  position:absolute;
+  left:50%;
+  top:50%;
+  transform:translate(-50%,-50%) rotate(-9deg);
+  font-family:'Fraunces',Georgia,serif;
+  font-size:clamp(180px,20vw,340px);
+  font-weight:500;
+  color:rgba(201,166,107,.025);
+  letter-spacing:-.08em;
+  pointer-events:none;
+  z-index:0;
+}
+.tt-auth-layout::after{
   content:"";
   position:absolute;
-  width:280px;
-  height:280px;
+  inset:-45% -20% auto auto;
+  width:62%;
+  aspect-ratio:1;
   border-radius:50%;
-  filter:blur(48px);
-  opacity:.34;
+  background:radial-gradient(circle,rgba(201,166,107,.10),transparent 68%);
+  filter:blur(12px);
   pointer-events:none;
-  z-index:-1;
-}
-.tt-auth-cinematic::before{left:-90px;top:-80px;background:var(--tt-auth-blush)}
-.tt-auth-cinematic::after{right:-110px;bottom:-120px;background:var(--tt-auth-gold)}
-.tt-auth-layout{
-  display:grid;
-  grid-template-columns:minmax(220px,.82fr) minmax(300px,1.18fr);
-  gap:28px;
-  min-height:540px;
-  align-items:center;
-  padding:28px;
-  border-radius:28px;
-  background:
-    radial-gradient(circle at 15% 25%,rgba(216,156,150,.24),transparent 34%),
-    radial-gradient(circle at 88% 75%,rgba(201,160,94,.20),transparent 30%),
-    linear-gradient(145deg,rgba(36,26,21,.98),rgba(63,40,34,.96));
-  box-shadow:0 28px 70px rgba(36,26,21,.22),inset 0 1px 0 rgba(255,255,255,.08);
 }
 .tt-auth-scene{
   position:relative;
-  height:100%;
-  min-height:430px;
+  min-height:560px;
   display:flex;
   align-items:flex-end;
   justify-content:center;
   overflow:hidden;
-  border-radius:24px;
+  padding:72px 20px 34px;
+  border-right:1px solid rgba(255,255,255,.055);
   background:
-    linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.015)),
-    radial-gradient(circle at 50% 84%,rgba(201,160,94,.18),transparent 36%);
+    linear-gradient(90deg,rgba(255,255,255,.015),transparent),
+    radial-gradient(circle at 50% 74%,rgba(201,166,107,.12),transparent 35%);
+  z-index:1;
+}
+.tt-auth-scene::before{
+  content:"";
+  position:absolute;
+  width:310px;
+  height:310px;
+  top:95px;
+  left:50%;
+  translate:-50% 0;
+  border-radius:50%;
+  border:1px solid rgba(201,166,107,.12);
+  box-shadow:
+    0 0 0 18px rgba(201,166,107,.018),
+    0 0 0 42px rgba(201,166,107,.009);
+  animation:ttHalo 6s ease-in-out infinite;
 }
 .tt-auth-scene::after{
   content:"";
   position:absolute;
-  left:12%;
-  right:12%;
-  bottom:34px;
+  left:15%;
+  right:15%;
+  bottom:26px;
   height:18px;
   border-radius:50%;
-  background:rgba(0,0,0,.25);
-  filter:blur(12px);
+  background:rgba(0,0,0,.35);
+  filter:blur(13px);
   transform:scaleX(.9);
 }
 .tt-auth-brand{
   position:absolute;
   top:24px;
-  left:24px;
-  z-index:3;
+  left:26px;
+  z-index:8;
   display:flex;
   align-items:center;
-  gap:10px;
-  color:var(--tt-auth-ivory);
-  letter-spacing:.16em;
-  font-size:11px;
+  gap:11px;
+  color:rgba(255,248,239,.82);
+  letter-spacing:.18em;
+  font-size:10px;
   font-weight:800;
   text-transform:uppercase;
 }
-.tt-auth-brand b{
-  display:grid;
-  place-items:center;
-  width:42px;
-  height:42px;
+.tt-auth-brand .tt-brand-mark{
+  width:48px;
+  height:48px;
   border-radius:50%;
-  font-family:Georgia,serif;
-  font-size:21px;
-  letter-spacing:0;
-  color:var(--tt-auth-ink);
-  background:linear-gradient(145deg,var(--tt-auth-ivory),#ead2bc);
-  box-shadow:0 8px 28px rgba(0,0,0,.18),inset 0 0 0 1px rgba(255,255,255,.65);
+  object-fit:cover;
+  box-shadow:0 10px 28px rgba(0,0,0,.26),0 0 0 1px rgba(201,166,107,.35);
 }
-.tt-auth-avatar-wrap{
-  width:min(250px,82%);
-  margin-bottom:40px;
+.tt-auth-rail{
+  position:absolute;
+  inset:auto 7% 75px 7%;
+  height:130px;
+  border-top:1px solid rgba(201,166,107,.12);
+  border-radius:50% 50% 0 0;
+  transform:rotate(-4deg);
+  pointer-events:none;
+}
+.tt-auth-rail.r2{
+  inset:auto 18% 116px 2%;
+  transform:rotate(12deg) scale(.84);
+  opacity:.45;
+}
+.tt-auth-spark{
+  position:absolute;
   z-index:2;
+  width:4px;
+  height:4px;
+  border-radius:50%;
+  background:var(--tt-auth-gold2);
+  box-shadow:0 0 14px rgba(241,215,155,.85);
+  opacity:.55;
+  animation:ttSpark 4.2s ease-in-out infinite;
+}
+.tt-auth-spark.s1{left:18%;top:30%}
+.tt-auth-spark.s2{right:16%;top:25%;animation-delay:1.4s}
+.tt-auth-spark.s3{right:24%;bottom:24%;animation-delay:2.5s}
+.tt-auth-spark.s4{left:22%;bottom:34%;animation-delay:3.2s}
+.tt-auth-avatar-wrap{
+  position:relative;
+  width:min(270px,88%);
+  z-index:4;
+  margin-bottom:22px;
   transform-origin:50% 100%;
-  animation:tt-auth-walk-in 2.15s cubic-bezier(.18,.78,.24,1) both,tt-auth-idle 3.4s ease-in-out 2.3s infinite;
+  animation:ttWalkIn 2.15s cubic-bezier(.16,.78,.22,1) both,ttIdle 4s ease-in-out 2.2s infinite;
 }
-.tt-auth-avatar{width:100%;height:auto;overflow:visible;filter:drop-shadow(0 18px 22px rgba(0,0,0,.28))}
-.tt-auth-avatar .tt-arm-left,
-.tt-auth-avatar .tt-arm-right,
-.tt-auth-avatar .tt-leg-left,
-.tt-auth-avatar .tt-leg-right{
+.tt-auth-avatar{
+  width:100%;
+  height:auto;
+  overflow:visible;
+  filter:drop-shadow(0 18px 24px rgba(0,0,0,.32));
+}
+.tt-auth-avatar .tt-body,
+.tt-auth-avatar .tt-hair,
+.tt-auth-avatar .tt-face{
   transform-box:fill-box;
-  transform-origin:50% 12%;
+  transform-origin:center;
 }
-.tt-auth-avatar .tt-arm-left{animation:tt-auth-limb-a .42s ease-in-out 0s 5 alternate}
-.tt-auth-avatar .tt-arm-right{animation:tt-auth-limb-b .42s ease-in-out 0s 5 alternate}
-.tt-auth-avatar .tt-leg-left{animation:tt-auth-limb-b .42s ease-in-out 0s 5 alternate}
-.tt-auth-avatar .tt-leg-right{animation:tt-auth-limb-a .42s ease-in-out 0s 5 alternate}
+.tt-auth-avatar .tt-arm-l,
+.tt-auth-avatar .tt-arm-r{
+  transform-box:fill-box;
+  transform-origin:50% 5%;
+  transition:transform .42s cubic-bezier(.2,.8,.2,1);
+}
+.tt-auth-avatar .tt-leg-l,
+.tt-auth-avatar .tt-leg-r{
+  transform-box:fill-box;
+  transform-origin:50% 0%;
+  animation-duration:.48s;
+  animation-timing-function:ease-in-out;
+  animation-iteration-count:4;
+  animation-direction:alternate;
+}
+.tt-auth-avatar .tt-leg-l{animation-name:ttLegA}
+.tt-auth-avatar .tt-leg-r{animation-name:ttLegB}
+.tt-auth-avatar .tt-arm-l{animation:ttArmA .48s ease-in-out 0s 4 alternate}
+.tt-auth-avatar .tt-arm-r{animation:ttArmB .48s ease-in-out 0s 4 alternate}
+.tt-auth-avatar .tt-hair-tail{
+  transform-box:fill-box;
+  transform-origin:50% 5%;
+  animation:ttHairSwing 3.2s ease-in-out infinite;
+}
+.tt-auth-character.is-pointing .tt-arm-r{
+  animation:none!important;
+  transform:rotate(-48deg) translate(2px,-5px);
+}
+.tt-auth-character.is-password .tt-arm-l,
+.tt-auth-character.is-password .tt-arm-r{
+  animation:none!important;
+}
+.tt-auth-character.is-password .tt-arm-l{transform:rotate(-62deg) translate(11px,-18px)}
+.tt-auth-character.is-password .tt-arm-r{transform:rotate(62deg) translate(-11px,-18px)}
+.tt-auth-character.is-happy .tt-avatar-smile{
+  transform-box:fill-box;
+  transform-origin:center;
+  animation:ttSmilePop .55s ease both;
+}
 .tt-auth-case{
   position:absolute;
-  right:16%;
-  bottom:48px;
-  z-index:3;
-  width:62px;
-  height:45px;
-  border-radius:12px 12px 10px 10px;
-  background:linear-gradient(145deg,#8b554e,#5d352f);
-  box-shadow:0 12px 20px rgba(0,0,0,.25),inset 0 0 0 1px rgba(255,255,255,.10);
-  animation:tt-auth-case-in 1.6s .65s cubic-bezier(.2,.9,.25,1.15) both;
+  right:13%;
+  bottom:38px;
+  z-index:5;
+  width:72px;
+  height:52px;
+  border-radius:15px 15px 12px 12px;
+  background:linear-gradient(145deg,#8d514f,#5a302c);
+  border:1px solid rgba(225,190,127,.22);
+  box-shadow:0 15px 25px rgba(0,0,0,.28),inset 0 1px 0 rgba(255,255,255,.1);
+  animation:ttCaseDrop 1.65s .7s cubic-bezier(.18,.85,.22,1.2) both;
 }
 .tt-auth-case::before{
   content:"";
   position:absolute;
-  width:26px;
-  height:12px;
+  width:30px;
+  height:13px;
   border:4px solid var(--tt-auth-gold);
   border-bottom:0;
-  border-radius:8px 8px 0 0;
-  left:14px;
-  top:-12px;
+  border-radius:9px 9px 0 0;
+  left:17px;
+  top:-14px;
 }
 .tt-auth-case::after{
   content:"TT";
@@ -139,129 +240,229 @@
   inset:0;
   display:grid;
   place-items:center;
-  color:var(--tt-auth-gold);
-  font-family:Georgia,serif;
-  font-size:15px;
+  color:var(--tt-auth-gold2);
+  font-family:'Fraunces',Georgia,serif;
+  font-size:17px;
 }
-.tt-auth-spark{
-  position:absolute;
-  width:7px;
-  height:7px;
-  border-radius:50%;
-  background:var(--tt-auth-gold);
-  box-shadow:0 0 15px rgba(201,160,94,.9);
-  animation:tt-auth-sparkle 2.8s ease-in-out infinite;
-}
-.tt-auth-spark.s1{left:21%;top:31%;animation-delay:.2s}
-.tt-auth-spark.s2{right:19%;top:22%;width:5px;height:5px;animation-delay:1.1s}
-.tt-auth-spark.s3{right:28%;bottom:28%;width:4px;height:4px;animation-delay:1.8s}
 .tt-auth-panel{
   position:relative;
-  z-index:4;
-  padding:28px;
-  border-radius:24px;
+  z-index:5;
+  align-self:center;
+  margin:28px 28px 28px 0;
+  padding:32px;
+  border-radius:26px;
   color:var(--tt-auth-ink);
-  background:rgba(255,248,239,.93);
-  -webkit-backdrop-filter:blur(22px) saturate(135%);
-  backdrop-filter:blur(22px) saturate(135%);
-  border:1px solid rgba(255,255,255,.64);
-  box-shadow:0 22px 55px rgba(0,0,0,.22),inset 0 1px 0 rgba(255,255,255,.9);
-  animation:tt-auth-form-in .9s .48s cubic-bezier(.2,.82,.25,1) both;
+  background:
+    linear-gradient(145deg,rgba(255,250,244,.94),rgba(239,225,212,.88));
+  -webkit-backdrop-filter:blur(28px) saturate(135%);
+  backdrop-filter:blur(28px) saturate(135%);
+  border:1px solid rgba(255,255,255,.68);
+  box-shadow:
+    0 24px 56px rgba(0,0,0,.24),
+    inset 0 1px 0 rgba(255,255,255,.95);
+  overflow:hidden;
+  animation:ttFormIn .95s .58s cubic-bezier(.2,.82,.25,1) both;
+}
+.tt-auth-panel::before{
+  content:"";
+  position:absolute;
+  inset:-55% auto -55% -55%;
+  width:30%;
+  transform:rotate(18deg);
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.48),transparent);
+  animation:ttPanelSweep 8s ease-in-out 2s infinite;
+  pointer-events:none;
 }
 .tt-auth-panel h1,.tt-auth-panel h2,.tt-auth-panel h3,.tt-auth-panel h4{color:var(--tt-auth-ink)}
-.tt-auth-panel > p{color:#6d574d}
+.tt-auth-panel > p{color:#755f54}
 .tt-auth-panel .auth-tabs{
+  display:grid!important;
+  grid-template-columns:1fr 1fr;
+  gap:5px!important;
   padding:5px;
-  border-radius:14px;
-  background:rgba(36,26,21,.07);
+  margin:20px 0 22px!important;
+  border-radius:16px;
+  background:rgba(36,26,21,.07)!important;
+  border:1px solid rgba(36,26,21,.05);
+  box-shadow:inset 0 1px 2px rgba(36,26,21,.06);
 }
 .tt-auth-panel .auth-tabs button{
-  border-radius:11px;
-  transition:transform .2s ease,background .25s ease,color .25s ease,box-shadow .25s ease;
+  min-height:46px;
+  border:0!important;
+  border-radius:12px!important;
+  color:#8b776a!important;
+  background:transparent!important;
+  font-weight:800!important;
+  transition:transform .2s ease,background .28s ease,color .28s ease,box-shadow .28s ease!important;
 }
 .tt-auth-panel .auth-tabs button.active{
   color:var(--tt-auth-ivory)!important;
-  background:linear-gradient(135deg,var(--tt-auth-rose),var(--tt-auth-ink))!important;
-  box-shadow:0 8px 22px rgba(91,52,49,.22);
+  background:linear-gradient(135deg,#b96f75,#3a211b)!important;
+  box-shadow:0 10px 24px rgba(72,38,32,.22),inset 0 1px 0 rgba(255,255,255,.15)!important;
+}
+.tt-auth-panel .field{
+  opacity:0;
+  transform:translateY(12px);
+  animation:ttFieldIn .5s ease forwards;
+}
+.tt-auth-panel .field:nth-of-type(1){animation-delay:.78s}
+.tt-auth-panel .field:nth-of-type(2){animation-delay:.88s}
+.tt-auth-panel .field:nth-of-type(3){animation-delay:.98s}
+.tt-auth-panel label{
+  color:#7e6a5e!important;
+  font-weight:750!important;
 }
 .tt-auth-panel input,
 .tt-auth-panel select,
 .tt-auth-panel textarea{
-  background:rgba(255,255,255,.82)!important;
+  min-height:48px;
+  background:rgba(255,255,255,.78)!important;
   color:var(--tt-auth-ink)!important;
-  border:1px solid rgba(91,52,49,.18)!important;
-  box-shadow:inset 0 1px 0 rgba(255,255,255,.8);
-  transition:border-color .2s ease,box-shadow .2s ease,transform .2s ease;
+  border:1px solid rgba(91,52,49,.14)!important;
+  border-radius:13px!important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.85),0 5px 14px rgba(71,43,35,.04);
+  transition:border-color .2s ease,box-shadow .2s ease,transform .2s ease,background .2s ease!important;
 }
 .tt-auth-panel input:focus,
 .tt-auth-panel select:focus,
 .tt-auth-panel textarea:focus{
-  outline:none;
-  border-color:var(--tt-auth-gold)!important;
-  box-shadow:0 0 0 4px rgba(201,160,94,.16),inset 0 1px 0 rgba(255,255,255,.85);
+  outline:none!important;
+  border-color:rgba(201,166,107,.9)!important;
+  background:#fff!important;
+  box-shadow:0 0 0 4px rgba(201,166,107,.14),0 10px 24px rgba(70,43,34,.08)!important;
   transform:translateY(-1px);
 }
 .tt-auth-panel button[type="submit"],
 .tt-auth-panel .full,
 .tt-auth-panel .btn-primary{
-  background:linear-gradient(135deg,var(--tt-auth-rose),var(--tt-auth-ink))!important;
+  position:relative;
+  overflow:hidden;
+  min-height:50px;
+  border-radius:14px!important;
+  background:linear-gradient(105deg,#bb7076,#7d4644 52%,#2a1713)!important;
   color:var(--tt-auth-ivory)!important;
   border:1px solid rgba(255,255,255,.14)!important;
-  box-shadow:0 12px 28px rgba(91,52,49,.22)!important;
+  box-shadow:0 14px 30px rgba(80,43,38,.20)!important;
+  transition:transform .2s ease,box-shadow .25s ease!important;
+}
+.tt-auth-panel button[type="submit"]::after,
+.tt-auth-panel .btn-primary::after{
+  content:"";
+  position:absolute;
+  inset:-60% auto -60% -40%;
+  width:26%;
+  transform:rotate(18deg);
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.5),transparent);
+  animation:ttButtonSweep 5.8s ease-in-out 1.4s infinite;
+}
+.tt-auth-panel button[type="submit"]:hover,
+.tt-auth-panel .btn-primary:hover{
+  transform:translateY(-2px);
+  box-shadow:0 18px 34px rgba(80,43,38,.26)!important;
 }
 .tt-auth-panel button[type="submit"]:active,
-.tt-auth-panel .full:active,
 .tt-auth-panel .btn-primary:active{transform:scale(.985)}
-.tt-auth-cinematic.tt-auth-replay .tt-auth-avatar-wrap{animation:none}
-.tt-auth-cinematic.tt-auth-replay .tt-auth-panel{animation:none}
+.tt-auth-cinematic.tt-auth-success .tt-auth-panel{
+  box-shadow:0 26px 62px rgba(0,0,0,.24),0 0 0 1px rgba(201,166,107,.22),0 0 48px rgba(201,166,107,.10);
+}
+.tt-auth-confetti{
+  position:absolute;
+  z-index:20;
+  width:5px;
+  height:10px;
+  border-radius:2px;
+  background:var(--tt-auth-gold2);
+  pointer-events:none;
+  animation:ttConfetti 1.25s ease-out forwards;
+}
+.tt-auth-cinematic.tt-auth-replay .tt-auth-avatar-wrap,
+.tt-auth-cinematic.tt-auth-replay .tt-auth-panel,
+.tt-auth-cinematic.tt-auth-replay .tt-auth-case{animation:none}
 .tt-auth-cinematic.tt-auth-replay.tt-auth-run .tt-auth-avatar-wrap{
-  animation:tt-auth-walk-in 1.7s cubic-bezier(.18,.78,.24,1) both,tt-auth-idle 3.4s ease-in-out 1.8s infinite;
+  animation:ttWalkIn 1.65s cubic-bezier(.16,.78,.22,1) both,ttIdle 4s ease-in-out 1.7s infinite;
 }
 .tt-auth-cinematic.tt-auth-replay.tt-auth-run .tt-auth-panel{
-  animation:tt-auth-form-in .7s .28s cubic-bezier(.2,.82,.25,1) both;
+  animation:ttFormIn .72s .24s cubic-bezier(.2,.82,.25,1) both;
 }
-@keyframes tt-auth-walk-in{
-  0%{opacity:0;transform:translate3d(-165px,5px,0) scale(.94)}
-  18%{opacity:1}
-  72%{transform:translate3d(10px,-1px,0) scale(1.01)}
-  100%{opacity:1;transform:translate3d(0,0,0) scale(1)}
+.tt-auth-cinematic.tt-auth-replay.tt-auth-run .tt-auth-case{
+  animation:ttCaseDrop 1.25s .45s cubic-bezier(.18,.85,.22,1.2) both;
 }
-@keyframes tt-auth-idle{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
-@keyframes tt-auth-limb-a{from{transform:rotate(13deg)}to{transform:rotate(-13deg)}}
-@keyframes tt-auth-limb-b{from{transform:rotate(-13deg)}to{transform:rotate(13deg)}}
-@keyframes tt-auth-form-in{
-  0%{opacity:0;transform:translate3d(65px,0,0) scale(.97);filter:blur(5px)}
-  100%{opacity:1;transform:none;filter:blur(0)}
+#programare .steps .step{
+  position:relative;
+  padding:9px 10px;
+  margin-inline:-10px;
+  border-radius:14px;
+  transition:background .35s ease,transform .35s ease,opacity .35s ease;
 }
-@keyframes tt-auth-case-in{
-  0%{opacity:0;transform:translate3d(100px,-55px,0) rotate(14deg)}
-  68%{opacity:1;transform:translate3d(-5px,5px,0) rotate(-4deg)}
-  84%{transform:translate3d(2px,-5px,0) rotate(2deg)}
+#programare .steps .step::after{
+  content:"";
+  position:absolute;
+  left:0;
+  top:18%;
+  bottom:18%;
+  width:2px;
+  border-radius:2px;
+  background:linear-gradient(var(--tt-auth-gold2),var(--tt-auth-rose));
+  opacity:0;
+  transform:scaleY(.2);
+  transition:.35s ease;
+}
+#programare .steps .step.tt-step-active{
+  background:linear-gradient(90deg,rgba(201,166,107,.08),transparent);
+  transform:translateX(6px);
+}
+#programare .steps .step.tt-step-active::after{opacity:1;transform:scaleY(1)}
+#programare .steps .step.tt-step-active .step-num{
+  color:var(--tt-auth-gold2);
+  text-shadow:0 0 18px rgba(201,166,107,.28);
+}
+@keyframes ttWalkIn{
+  0%{opacity:0;transform:translate3d(-170px,4px,0) scale(.96)}
+  16%{opacity:1}
+  68%{transform:translate3d(12px,-2px,0) scale(1.01)}
+  84%{transform:translate3d(-4px,0,0)}
   100%{opacity:1;transform:none}
 }
-@keyframes tt-auth-sparkle{0%,100%{opacity:.18;transform:scale(.7)}50%{opacity:1;transform:scale(1.35)}}
+@keyframes ttIdle{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
+@keyframes ttLegA{from{transform:rotate(10deg)}to{transform:rotate(-10deg)}}
+@keyframes ttLegB{from{transform:rotate(-10deg)}to{transform:rotate(10deg)}}
+@keyframes ttArmA{from{transform:rotate(-9deg)}to{transform:rotate(9deg)}}
+@keyframes ttArmB{from{transform:rotate(9deg)}to{transform:rotate(-9deg)}}
+@keyframes ttHairSwing{0%,100%{transform:rotate(-2deg)}50%{transform:rotate(4deg)}}
+@keyframes ttHalo{0%,100%{transform:scale(.98);opacity:.55}50%{transform:scale(1.035);opacity:.9}}
+@keyframes ttSpark{0%,100%{opacity:.12;transform:translateY(4px) scale(.7)}50%{opacity:.9;transform:translateY(-10px) scale(1.25)}}
+@keyframes ttFormIn{0%{opacity:0;transform:translate3d(70px,0,0) scale(.97);filter:blur(8px)}100%{opacity:1;transform:none;filter:none}}
+@keyframes ttFieldIn{to{opacity:1;transform:none}}
+@keyframes ttCaseDrop{0%{opacity:0;transform:translate3d(115px,-80px,0) rotate(18deg)}65%{opacity:1;transform:translate3d(-6px,7px,0) rotate(-5deg)}82%{transform:translate3d(3px,-5px,0) rotate(2deg)}100%{opacity:1;transform:none}}
+@keyframes ttPanelSweep{0%,18%{left:-55%;opacity:0}30%{opacity:.7}52%{left:135%;opacity:0}100%{left:135%;opacity:0}}
+@keyframes ttButtonSweep{0%,72%{left:-40%;opacity:0}80%{opacity:.8}94%{left:125%;opacity:0}100%{left:125%;opacity:0}}
+@keyframes ttSmilePop{0%{transform:scaleY(.4)}55%{transform:scaleY(1.4)}100%{transform:scaleY(1)}}
+@keyframes ttConfetti{0%{opacity:1;transform:translate(0,0) rotate(0)}100%{opacity:0;transform:translate(var(--cx),var(--cy)) rotate(420deg)}}
 @media(max-width:780px){
   .tt-auth-layout{
     grid-template-columns:1fr;
     min-height:0;
-    gap:0;
-    padding:14px;
     border-radius:24px;
   }
   .tt-auth-scene{
-    min-height:185px;
-    height:185px;
-    align-items:flex-end;
-    margin-bottom:-8px;
+    min-height:220px;
+    height:220px;
+    padding:46px 16px 12px;
+    border-right:0;
+    border-bottom:1px solid rgba(255,255,255,.05);
   }
-  .tt-auth-avatar-wrap{width:135px;margin-bottom:15px}
-  .tt-auth-brand{top:13px;left:14px;font-size:9px}
-  .tt-auth-brand b{width:34px;height:34px;font-size:17px}
-  .tt-auth-case{width:46px;height:34px;right:21%;bottom:22px}
+  .tt-auth-scene::before{width:170px;height:170px;top:28px}
+  .tt-auth-avatar-wrap{width:130px;margin-bottom:0}
+  .tt-auth-brand{top:13px;left:15px;font-size:8px}
+  .tt-auth-brand .tt-brand-mark{width:34px;height:34px}
+  .tt-auth-case{width:48px;height:35px;right:24%;bottom:16px}
   .tt-auth-case::before{width:20px;height:9px;left:10px;top:-10px}
-  .tt-auth-panel{padding:20px 16px;border-radius:20px}
-  .tt-auth-scene::after{bottom:13px}
+  .tt-auth-panel{margin:0;padding:22px 17px;border-radius:0 0 23px 23px}
+  .tt-auth-panel .auth-tabs button{min-height:42px;font-size:12px}
 }
 @media(prefers-reduced-motion:reduce){
-  .tt-auth-avatar-wrap,.tt-auth-avatar *,.tt-auth-case,.tt-auth-spark,.tt-auth-panel{animation:none!important}
+  .tt-auth-avatar-wrap,.tt-auth-avatar *,.tt-auth-case,.tt-auth-spark,.tt-auth-panel,
+  .tt-auth-panel::before,.tt-auth-panel button::after,.tt-auth-scene::before,.tt-auth-confetti{
+    animation:none!important;
+  }
 }
