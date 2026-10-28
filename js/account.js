@@ -116,4 +116,4 @@
   document.body.appendChild(recoveryScript);
 })();
 
-(function(){var l=document.createElement("link");l.rel="stylesheet";l.href="css/auth-cinematic.css?v=6";document.head.appendChild(l);var s=document.createElement("script");s.src="js/auth-cinematic.js?v=5";s.defer=true;document.body.appendChild(s)})();
+(function(){var l=document.createElement("link");l.rel="stylesheet";l.href="css/auth-cinematic.css?v=7";document.head.appendChild(l);var s=document.createElement("script");s.src="js/auth-cinematic.js?v=6";s.defer=true;document.body.appendChild(s)})();
