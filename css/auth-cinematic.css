@@ -1,11 +1,12 @@
 :root{
-  --tt-auth-ink:#241a15;
-  --tt-auth-deep:#160d09;
-  --tt-auth-gold:#c9a66b;
-  --tt-auth-gold2:#f1d79b;
-  --tt-auth-rose:#b76d73;
-  --tt-auth-ivory:#fff8ef;
-  --tt-auth-cream:#f4eadf;
+  --ttc-deep:#140a06;
+  --ttc-deep2:#24120b;
+  --ttc-brown:#4d2f23;
+  --ttc-gold:#d7ad63;
+  --ttc-gold2:#f4d58a;
+  --ttc-ivory:#fff8ed;
+  --ttc-muted:#c9b7a9;
+  --ttc-rose:#a75f63;
 }
 .tt-auth-cinematic{
   position:relative;
@@ -18,331 +19,457 @@
 .tt-auth-layout{
   position:relative;
   display:grid;
-  grid-template-columns:minmax(250px,.9fr) minmax(340px,1.1fr);
-  gap:0;
-  min-height:560px;
-  align-items:stretch;
+  grid-template-columns:minmax(300px,.98fr) minmax(390px,1.02fr);
+  min-height:630px;
   overflow:hidden;
-  border:1px solid rgba(221,187,126,.24);
-  border-radius:30px;
+  border:1px solid rgba(226,184,106,.30);
+  border-radius:34px;
   background:
-    radial-gradient(circle at 18% 30%,rgba(183,109,115,.18),transparent 28%),
-    radial-gradient(circle at 86% 78%,rgba(201,166,107,.13),transparent 30%),
-    linear-gradient(135deg,rgba(44,27,20,.97),rgba(24,14,10,.985));
+    radial-gradient(circle at 76% 12%,rgba(215,173,99,.12),transparent 28%),
+    linear-gradient(135deg,rgba(43,24,16,.98),rgba(18,9,6,.995));
   box-shadow:
-    0 32px 80px rgba(0,0,0,.34),
-    inset 0 1px 0 rgba(255,255,255,.06),
-    inset 0 -1px 0 rgba(201,166,107,.05);
-  isolation:isolate;
-}
-.tt-auth-layout::before{
-  content:"TT";
-  position:absolute;
-  left:50%;
-  top:50%;
-  transform:translate(-50%,-50%) rotate(-9deg);
-  font-family:'Fraunces',Georgia,serif;
-  font-size:clamp(180px,20vw,340px);
-  font-weight:500;
-  color:rgba(201,166,107,.025);
-  letter-spacing:-.08em;
-  pointer-events:none;
-  z-index:0;
+    0 36px 90px rgba(0,0,0,.43),
+    0 0 70px rgba(215,173,99,.045),
+    inset 0 1px 0 rgba(255,255,255,.055);
 }
 .tt-auth-layout::after{
   content:"";
   position:absolute;
-  inset:-45% -20% auto auto;
+  inset:-60% -18% auto auto;
   width:62%;
   aspect-ratio:1;
   border-radius:50%;
-  background:radial-gradient(circle,rgba(201,166,107,.10),transparent 68%);
-  filter:blur(12px);
+  background:radial-gradient(circle,rgba(215,173,99,.10),transparent 68%);
+  filter:blur(18px);
   pointer-events:none;
+}
+.tt-auth-progress{
+  position:absolute;
+  z-index:30;
+  top:22px;
+  right:28px;
+  width:min(47%,430px);
+  display:grid;
+  grid-template-columns:1fr 1fr 1fr;
+  align-items:center;
+  gap:14px;
+  pointer-events:none;
+}
+.tt-progress-step{
+  position:relative;
+  display:flex;
+  align-items:center;
+  gap:8px;
+  color:rgba(244,229,209,.46);
+  font:700 10px 'Manrope',sans-serif;
+  letter-spacing:.04em;
+  white-space:nowrap;
+  transition:.35s ease;
+}
+.tt-progress-step:not(:last-child)::after{
+  content:"";
+  position:absolute;
+  left:calc(100% - 3px);
+  top:50%;
+  width:20px;
+  height:1px;
+  background:rgba(233,204,151,.25);
+}
+.tt-progress-step b{
+  display:grid;
+  place-items:center;
+  width:32px;
+  height:32px;
+  border-radius:50%;
+  border:1px solid rgba(235,203,145,.26);
+  background:rgba(42,24,17,.62);
+  color:rgba(255,244,224,.62);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.04);
+  transition:.35s ease;
+}
+.tt-progress-step.is-active{
+  color:#f8ead1;
+}
+.tt-progress-step.is-active b{
+  color:#21130d;
+  border-color:rgba(255,223,155,.78);
+  background:linear-gradient(145deg,#f2cd78,#b77b31);
+  box-shadow:0 0 24px rgba(225,174,83,.36),inset 0 1px 0 rgba(255,255,255,.42);
+}
+.tt-progress-step.is-done b{
+  color:#25150e;
+  background:linear-gradient(145deg,#f2cf82,#bf883d);
 }
 .tt-auth-scene{
   position:relative;
-  min-height:560px;
-  display:flex;
-  align-items:flex-end;
-  justify-content:center;
+  min-height:630px;
   overflow:hidden;
-  padding:72px 20px 34px;
   border-right:1px solid rgba(255,255,255,.055);
-  background:
-    linear-gradient(90deg,rgba(255,255,255,.015),transparent),
-    radial-gradient(circle at 50% 74%,rgba(201,166,107,.12),transparent 35%);
-  z-index:1;
+  background:#20110c;
+}
+.tt-concierge-photo{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center top;
+  filter:saturate(.82) contrast(1.05) brightness(.72);
+  transform:scale(1.045);
+  transition:filter .55s ease,transform 1.2s cubic-bezier(.2,.7,.2,1);
 }
 .tt-auth-scene::before{
   content:"";
   position:absolute;
-  width:310px;
-  height:310px;
-  top:95px;
-  left:50%;
-  translate:-50% 0;
-  border-radius:50%;
-  border:1px solid rgba(201,166,107,.12);
-  box-shadow:
-    0 0 0 18px rgba(201,166,107,.018),
-    0 0 0 42px rgba(201,166,107,.009);
-  animation:ttHalo 6s ease-in-out infinite;
+  inset:0;
+  z-index:2;
+  background:
+    linear-gradient(180deg,rgba(13,6,4,.18) 0%,rgba(15,7,4,.05) 38%,rgba(13,6,4,.48) 100%),
+    linear-gradient(90deg,rgba(23,11,7,.45) 0%,transparent 32%,transparent 70%,rgba(17,8,5,.22) 100%);
+  pointer-events:none;
 }
 .tt-auth-scene::after{
   content:"";
   position:absolute;
-  left:15%;
-  right:15%;
-  bottom:26px;
-  height:18px;
-  border-radius:50%;
-  background:rgba(0,0,0,.35);
-  filter:blur(13px);
-  transform:scaleX(.9);
+  z-index:4;
+  inset:-60% auto -60% -42%;
+  width:23%;
+  transform:rotate(18deg);
+  background:linear-gradient(90deg,transparent,rgba(255,227,171,.12),transparent);
+  animation:ttSceneSweep 8.5s ease-in-out 1.7s infinite;
+  pointer-events:none;
 }
-.tt-auth-brand{
+.tt-scene-logo{
   position:absolute;
-  top:24px;
-  left:26px;
+  z-index:3;
+  top:82px;
+  left:50%;
+  width:178px;
+  aspect-ratio:1;
+  translate:-50% 0;
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  border:1px solid rgba(237,199,126,.22);
+  background:radial-gradient(circle,rgba(41,23,16,.38),rgba(24,12,8,.08) 64%,transparent 66%);
+  box-shadow:
+    0 0 0 12px rgba(215,173,99,.025),
+    0 0 55px rgba(215,173,99,.16),
+    inset 0 0 42px rgba(215,173,99,.07);
+  opacity:.9;
+  animation:ttLogoPulse 5.6s ease-in-out infinite;
+}
+.tt-scene-logo img{
+  width:108px;
+  height:108px;
+  object-fit:cover;
+  border-radius:50%;
+  filter:drop-shadow(0 10px 20px rgba(0,0,0,.35));
+}
+.tt-scene-brand{
+  position:absolute;
   z-index:8;
+  left:24px;
+  top:24px;
   display:flex;
   align-items:center;
   gap:11px;
-  color:rgba(255,248,239,.82);
-  letter-spacing:.18em;
-  font-size:10px;
-  font-weight:800;
+  color:#f3e5d3;
+  font:800 9px 'Manrope',sans-serif;
   text-transform:uppercase;
+  letter-spacing:.19em;
 }
-.tt-auth-brand .tt-brand-mark{
-  width:48px;
-  height:48px;
-  border-radius:50%;
+.tt-scene-brand img{
+  width:44px;
+  height:44px;
   object-fit:cover;
-  box-shadow:0 10px 28px rgba(0,0,0,.26),0 0 0 1px rgba(201,166,107,.35);
-}
-.tt-auth-rail{
-  position:absolute;
-  inset:auto 7% 75px 7%;
-  height:130px;
-  border-top:1px solid rgba(201,166,107,.12);
-  border-radius:50% 50% 0 0;
-  transform:rotate(-4deg);
-  pointer-events:none;
-}
-.tt-auth-rail.r2{
-  inset:auto 18% 116px 2%;
-  transform:rotate(12deg) scale(.84);
-  opacity:.45;
-}
-.tt-auth-spark{
-  position:absolute;
-  z-index:2;
-  width:4px;
-  height:4px;
   border-radius:50%;
-  background:var(--tt-auth-gold2);
-  box-shadow:0 0 14px rgba(241,215,155,.85);
-  opacity:.55;
-  animation:ttSpark 4.2s ease-in-out infinite;
+  box-shadow:0 0 0 1px rgba(229,192,123,.34),0 9px 25px rgba(0,0,0,.32);
 }
-.tt-auth-spark.s1{left:18%;top:30%}
-.tt-auth-spark.s2{right:16%;top:25%;animation-delay:1.4s}
-.tt-auth-spark.s3{right:24%;bottom:24%;animation-delay:2.5s}
-.tt-auth-spark.s4{left:22%;bottom:34%;animation-delay:3.2s}
-.tt-auth-avatar-wrap{
-  position:relative;
-  width:min(270px,88%);
-  z-index:4;
-  margin-bottom:22px;
-  transform-origin:50% 100%;
-  animation:ttWalkIn 2.15s cubic-bezier(.16,.78,.22,1) both,ttIdle 4s ease-in-out 2.2s infinite;
-}
-.tt-auth-avatar{
-  width:100%;
-  height:auto;
-  overflow:visible;
-  filter:drop-shadow(0 18px 24px rgba(0,0,0,.32));
-}
-.tt-auth-avatar .tt-body,
-.tt-auth-avatar .tt-hair,
-.tt-auth-avatar .tt-face{
-  transform-box:fill-box;
-  transform-origin:center;
-}
-.tt-auth-avatar .tt-arm-l,
-.tt-auth-avatar .tt-arm-r{
-  transform-box:fill-box;
-  transform-origin:50% 5%;
-  transition:transform .42s cubic-bezier(.2,.8,.2,1);
-}
-.tt-auth-avatar .tt-leg-l,
-.tt-auth-avatar .tt-leg-r{
-  transform-box:fill-box;
-  transform-origin:50% 0%;
-  animation-duration:.48s;
-  animation-timing-function:ease-in-out;
-  animation-iteration-count:4;
-  animation-direction:alternate;
-}
-.tt-auth-avatar .tt-leg-l{animation-name:ttLegA}
-.tt-auth-avatar .tt-leg-r{animation-name:ttLegB}
-.tt-auth-avatar .tt-arm-l{animation:ttArmA .48s ease-in-out 0s 4 alternate}
-.tt-auth-avatar .tt-arm-r{animation:ttArmB .48s ease-in-out 0s 4 alternate}
-.tt-auth-avatar .tt-hair-tail{
-  transform-box:fill-box;
-  transform-origin:50% 5%;
-  animation:ttHairSwing 3.2s ease-in-out infinite;
-}
-.tt-auth-character.is-pointing .tt-arm-r{
-  animation:none!important;
-  transform:rotate(-48deg) translate(2px,-5px);
-}
-.tt-auth-character.is-password .tt-arm-l,
-.tt-auth-character.is-password .tt-arm-r{
-  animation:none!important;
-}
-.tt-auth-character.is-password .tt-arm-l{transform:rotate(-62deg) translate(11px,-18px)}
-.tt-auth-character.is-password .tt-arm-r{transform:rotate(62deg) translate(-11px,-18px)}
-.tt-auth-character.is-happy .tt-avatar-smile{
-  transform-box:fill-box;
-  transform-origin:center;
-  animation:ttSmilePop .55s ease both;
-}
-.tt-auth-case{
+.tt-scene-caption{
   position:absolute;
-  right:13%;
-  bottom:38px;
-  z-index:5;
-  width:72px;
-  height:52px;
-  border-radius:15px 15px 12px 12px;
-  background:linear-gradient(145deg,#8d514f,#5a302c);
-  border:1px solid rgba(225,190,127,.22);
-  box-shadow:0 15px 25px rgba(0,0,0,.28),inset 0 1px 0 rgba(255,255,255,.1);
-  animation:ttCaseDrop 1.65s .7s cubic-bezier(.18,.85,.22,1.2) both;
+  z-index:8;
+  left:24px;
+  right:24px;
+  bottom:25px;
+  display:flex;
+  justify-content:space-between;
+  align-items:end;
+  gap:14px;
 }
-.tt-auth-case::before{
+.tt-scene-caption strong{
+  display:block;
+  color:#fff3df;
+  font:500 25px 'Fraunces',serif;
+  line-height:1.05;
+  text-shadow:0 5px 22px rgba(0,0,0,.5);
+}
+.tt-scene-caption small{
+  display:block;
+  margin-top:5px;
+  color:rgba(247,228,203,.66);
+  font-size:10px;
+  letter-spacing:.05em;
+}
+.tt-scene-status{
+  display:inline-flex;
+  align-items:center;
+  gap:7px;
+  padding:8px 11px;
+  border:1px solid rgba(229,192,123,.18);
+  border-radius:999px;
+  background:rgba(24,12,8,.44);
+  color:#ead2a6;
+  font-size:9px;
+  font-weight:800;
+  letter-spacing:.07em;
+  text-transform:uppercase;
+  -webkit-backdrop-filter:blur(12px);
+  backdrop-filter:blur(12px);
+}
+.tt-scene-status::before{
+  content:"";
+  width:6px;height:6px;border-radius:50%;
+  background:#e0b967;
+  box-shadow:0 0 12px rgba(224,185,103,.8);
+}
+.tt-gift-bag{
+  position:absolute;
+  z-index:7;
+  left:18%;
+  bottom:72px;
+  width:94px;
+  height:112px;
+  border-radius:12px 12px 8px 8px;
+  background:linear-gradient(145deg,#17100c,#2d1a12 60%,#15100c);
+  border:1px solid rgba(226,184,106,.24);
+  box-shadow:0 18px 30px rgba(0,0,0,.36),inset 0 1px 0 rgba(255,255,255,.04);
+  transform:rotate(-2deg);
+}
+.tt-gift-bag::before{
   content:"";
   position:absolute;
-  width:30px;
-  height:13px;
-  border:4px solid var(--tt-auth-gold);
+  width:48px;
+  height:28px;
+  left:21px;
+  top:-23px;
+  border:4px solid #c69a4f;
   border-bottom:0;
-  border-radius:9px 9px 0 0;
-  left:17px;
-  top:-14px;
+  border-radius:18px 18px 0 0;
 }
-.tt-auth-case::after{
+.tt-gift-bag::after{
   content:"TT";
   position:absolute;
   inset:0;
   display:grid;
   place-items:center;
-  color:var(--tt-auth-gold2);
-  font-family:'Fraunces',Georgia,serif;
-  font-size:17px;
+  color:#d9b461;
+  font:500 27px 'Fraunces',serif;
+  text-shadow:0 0 18px rgba(215,173,99,.18);
+}
+.tt-privacy-veil{
+  position:absolute;
+  z-index:9;
+  left:50%;
+  top:35%;
+  width:210px;
+  height:58px;
+  translate:-50% -50%;
+  opacity:0;
+  transform:scaleX(.55);
+  border:1px solid rgba(255,218,150,.20);
+  border-radius:999px;
+  background:
+    linear-gradient(90deg,rgba(83,45,36,.75),rgba(215,173,99,.20),rgba(83,45,36,.75));
+  -webkit-backdrop-filter:blur(13px);
+  backdrop-filter:blur(13px);
+  box-shadow:0 0 35px rgba(215,173,99,.16);
+  transition:opacity .28s ease,transform .45s cubic-bezier(.18,.8,.22,1);
+  pointer-events:none;
+}
+.tt-privacy-veil::after{
+  content:"🔒  Parola rămâne privată";
+  position:absolute;
+  inset:0;
+  display:grid;
+  place-items:center;
+  color:#ffe9bf;
+  font:800 9px 'Manrope',sans-serif;
+  letter-spacing:.07em;
+  text-transform:uppercase;
+}
+.tt-auth-character.is-password .tt-privacy-veil{
+  opacity:1;
+  transform:scaleX(1);
+}
+.tt-auth-character.is-password .tt-concierge-photo{
+  filter:saturate(.7) contrast(1.04) brightness(.60) blur(1.2px);
+  transform:scale(1.06);
 }
 .tt-auth-panel{
   position:relative;
-  z-index:5;
+  z-index:10;
   align-self:center;
-  margin:28px 28px 28px 0;
-  padding:32px;
-  border-radius:26px;
-  color:var(--tt-auth-ink);
+  margin:72px 28px 28px;
+  padding:32px 31px 28px;
+  min-height:500px;
+  border:1px solid rgba(255,231,194,.16);
+  border-radius:28px;
+  color:#f7ead8;
   background:
-    linear-gradient(145deg,rgba(255,250,244,.94),rgba(239,225,212,.88));
-  -webkit-backdrop-filter:blur(28px) saturate(135%);
-  backdrop-filter:blur(28px) saturate(135%);
-  border:1px solid rgba(255,255,255,.68);
+    linear-gradient(145deg,rgba(78,48,36,.72),rgba(45,27,20,.78));
+  -webkit-backdrop-filter:blur(28px) saturate(128%);
+  backdrop-filter:blur(28px) saturate(128%);
   box-shadow:
-    0 24px 56px rgba(0,0,0,.24),
-    inset 0 1px 0 rgba(255,255,255,.95);
+    0 28px 70px rgba(0,0,0,.31),
+    inset 0 1px 0 rgba(255,255,255,.065),
+    0 0 0 1px rgba(103,66,48,.10);
   overflow:hidden;
-  animation:ttFormIn .95s .58s cubic-bezier(.2,.82,.25,1) both;
+  animation:ttPanelIn .9s .25s cubic-bezier(.2,.8,.24,1) both;
 }
 .tt-auth-panel::before{
   content:"";
   position:absolute;
-  inset:-55% auto -55% -55%;
-  width:30%;
-  transform:rotate(18deg);
-  background:linear-gradient(90deg,transparent,rgba(255,255,255,.48),transparent);
-  animation:ttPanelSweep 8s ease-in-out 2s infinite;
-  pointer-events:none;
+  z-index:-1;
+  width:260px;
+  height:260px;
+  right:-80px;
+  top:-100px;
+  border-radius:50%;
+  background:radial-gradient(circle,rgba(215,173,99,.13),transparent 68%);
+  filter:blur(10px);
 }
-.tt-auth-panel h1,.tt-auth-panel h2,.tt-auth-panel h3,.tt-auth-panel h4{color:var(--tt-auth-ink)}
-.tt-auth-panel > p{color:#755f54}
+.tt-auth-panel h3{
+  margin:0 0 9px!important;
+  color:#fff3df!important;
+  font:500 clamp(30px,3vw,42px) 'Fraunces',serif!important;
+  letter-spacing:-.02em;
+}
+.tt-auth-panel>p{
+  margin:0 0 17px!important;
+  color:rgba(244,226,207,.68)!important;
+  font-size:13px!important;
+  line-height:1.55!important;
+}
 .tt-auth-panel .auth-tabs{
   display:grid!important;
   grid-template-columns:1fr 1fr;
-  gap:5px!important;
-  padding:5px;
-  margin:20px 0 22px!important;
-  border-radius:16px;
-  background:rgba(36,26,21,.07)!important;
-  border:1px solid rgba(36,26,21,.05);
-  box-shadow:inset 0 1px 2px rgba(36,26,21,.06);
+  gap:4px!important;
+  margin:20px 0 21px!important;
+  padding:4px!important;
+  border:1px solid rgba(241,215,168,.12)!important;
+  border-radius:999px!important;
+  background:rgba(24,12,8,.26)!important;
+  box-shadow:inset 0 1px 3px rgba(0,0,0,.16)!important;
 }
 .tt-auth-panel .auth-tabs button{
-  min-height:46px;
+  min-height:43px!important;
   border:0!important;
-  border-radius:12px!important;
-  color:#8b776a!important;
+  border-radius:999px!important;
+  color:rgba(247,231,211,.55)!important;
   background:transparent!important;
+  font-size:11px!important;
   font-weight:800!important;
-  transition:transform .2s ease,background .28s ease,color .28s ease,box-shadow .28s ease!important;
+  transition:.28s ease!important;
 }
+.tt-auth-panel .auth-tabs button[data-auth-mode="register"]::before{content:"＋  "}
+.tt-auth-panel .auth-tabs button[data-auth-mode="login"]::before{content:"↪  "}
 .tt-auth-panel .auth-tabs button.active{
-  color:var(--tt-auth-ivory)!important;
-  background:linear-gradient(135deg,#b96f75,#3a211b)!important;
-  box-shadow:0 10px 24px rgba(72,38,32,.22),inset 0 1px 0 rgba(255,255,255,.15)!important;
+  color:#26150d!important;
+  background:linear-gradient(135deg,#f0ca72,#b98038)!important;
+  box-shadow:0 9px 24px rgba(204,151,61,.20),inset 0 1px 0 rgba(255,255,255,.42)!important;
+}
+.tt-auth-panel .form-row{
+  display:grid!important;
+  grid-template-columns:1fr!important;
+  gap:12px!important;
 }
 .tt-auth-panel .field{
-  opacity:0;
-  transform:translateY(12px);
-  animation:ttFieldIn .5s ease forwards;
+  position:relative;
+  margin:0 0 12px!important;
 }
-.tt-auth-panel .field:nth-of-type(1){animation-delay:.78s}
-.tt-auth-panel .field:nth-of-type(2){animation-delay:.88s}
-.tt-auth-panel .field:nth-of-type(3){animation-delay:.98s}
-.tt-auth-panel label{
-  color:#7e6a5e!important;
-  font-weight:750!important;
+.tt-auth-panel .field .tt-field-icon{
+  position:absolute;
+  z-index:3;
+  left:14px;
+  top:50%;
+  translate:0 -50%;
+  width:20px;height:20px;
+  display:grid;
+  place-items:center;
+  color:#dfbd79;
+  opacity:.88;
+  pointer-events:none;
+}
+.tt-auth-panel .field .tt-field-icon svg{
+  width:17px;height:17px;
+  fill:none;
+  stroke:currentColor;
+  stroke-width:1.7;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+}
+.tt-auth-panel .field label{
+  position:absolute!important;
+  z-index:3;
+  left:45px!important;
+  top:15px!important;
+  margin:0!important;
+  color:rgba(244,224,202,.58)!important;
+  font-size:12px!important;
+  font-weight:650!important;
+  pointer-events:none;
+  transition:.2s ease!important;
+}
+.tt-auth-panel .field:focus-within label,
+.tt-auth-panel .field.tt-has-value label{
+  top:7px!important;
+  font-size:8.5px!important;
+  color:#dcb978!important;
+  letter-spacing:.04em;
+  text-transform:uppercase;
 }
 .tt-auth-panel input,
 .tt-auth-panel select,
 .tt-auth-panel textarea{
-  min-height:48px;
-  background:rgba(255,255,255,.78)!important;
-  color:var(--tt-auth-ink)!important;
-  border:1px solid rgba(91,52,49,.14)!important;
+  min-height:50px!important;
+  width:100%!important;
+  padding:17px 42px 7px 45px!important;
+  border:1px solid rgba(246,220,180,.14)!important;
   border-radius:13px!important;
-  box-shadow:inset 0 1px 0 rgba(255,255,255,.85),0 5px 14px rgba(71,43,35,.04);
-  transition:border-color .2s ease,box-shadow .2s ease,transform .2s ease,background .2s ease!important;
+  background:rgba(255,244,228,.055)!important;
+  color:#fff4e3!important;
+  font-size:13px!important;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.035)!important;
+  transition:border-color .2s ease,background .2s ease,box-shadow .2s ease,transform .2s ease!important;
 }
 .tt-auth-panel input:focus,
 .tt-auth-panel select:focus,
 .tt-auth-panel textarea:focus{
   outline:none!important;
-  border-color:rgba(201,166,107,.9)!important;
-  background:#fff!important;
-  box-shadow:0 0 0 4px rgba(201,166,107,.14),0 10px 24px rgba(70,43,34,.08)!important;
+  border-color:rgba(222,179,95,.60)!important;
+  background:rgba(255,244,228,.085)!important;
+  box-shadow:0 0 0 3px rgba(215,173,99,.085),0 10px 25px rgba(0,0,0,.12)!important;
   transform:translateY(-1px);
 }
+.tt-auth-panel input:-webkit-autofill{
+  -webkit-text-fill-color:#fff4e3!important;
+  -webkit-box-shadow:0 0 0 1000px rgba(60,37,28,.98) inset!important;
+}
 .tt-auth-panel button[type="submit"],
-.tt-auth-panel .full,
 .tt-auth-panel .btn-primary{
   position:relative;
   overflow:hidden;
-  min-height:50px;
-  border-radius:14px!important;
-  background:linear-gradient(105deg,#bb7076,#7d4644 52%,#2a1713)!important;
-  color:var(--tt-auth-ivory)!important;
-  border:1px solid rgba(255,255,255,.14)!important;
-  box-shadow:0 14px 30px rgba(80,43,38,.20)!important;
+  width:100%!important;
+  min-height:54px!important;
+  justify-content:center!important;
+  margin-top:5px!important;
+  border:1px solid rgba(255,226,166,.62)!important;
+  border-radius:999px!important;
+  color:#24130c!important;
+  background:linear-gradient(135deg,#f2d184,#d59f45 56%,#b8752f)!important;
+  font-weight:900!important;
+  box-shadow:0 15px 34px rgba(189,128,42,.19),inset 0 1px 0 rgba(255,255,255,.55)!important;
   transition:transform .2s ease,box-shadow .25s ease!important;
 }
 .tt-auth-panel button[type="submit"]::after,
@@ -350,193 +477,210 @@
   content:"";
   position:absolute;
   inset:-60% auto -60% -40%;
-  width:26%;
+  width:24%;
   transform:rotate(18deg);
-  background:linear-gradient(90deg,transparent,rgba(255,255,255,.5),transparent);
-  animation:ttButtonSweep 5.8s ease-in-out 1.4s infinite;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.68),transparent);
+  animation:ttButtonSweep 5.8s ease-in-out 1.2s infinite;
 }
 .tt-auth-panel button[type="submit"]:hover,
 .tt-auth-panel .btn-primary:hover{
-  transform:translateY(-2px);
-  box-shadow:0 18px 34px rgba(80,43,38,.26)!important;
+  transform:translateY(-2px) scale(1.005);
+  box-shadow:0 20px 42px rgba(190,129,42,.27),0 0 24px rgba(215,173,99,.08)!important;
 }
-.tt-auth-panel button[type="submit"]:active,
-.tt-auth-panel .btn-primary:active{transform:scale(.985)}
-.tt-auth-cinematic.tt-auth-success .tt-auth-panel{
-  box-shadow:0 26px 62px rgba(0,0,0,.24),0 0 0 1px rgba(201,166,107,.22),0 0 48px rgba(201,166,107,.10);
+.tt-auth-helper{
+  margin:15px 0 0;
+  text-align:center;
+  color:rgba(243,226,206,.58);
+  font-size:10.5px;
 }
+.tt-auth-helper button{
+  padding:0;
+  border:0;
+  border-bottom:1px solid rgba(226,184,106,.42);
+  background:none;
+  color:#e4bd70;
+  font:800 inherit;
+  cursor:pointer;
+}
+.tt-auth-success-card{
+  display:none;
+  padding:36px 10px 28px;
+  text-align:center;
+}
+.tt-auth-success-card .tt-success-mark{
+  width:70px;height:70px;
+  display:grid;place-items:center;
+  margin:0 auto 15px;
+  border-radius:50%;
+  color:#26150d;
+  font-size:32px;
+  background:linear-gradient(145deg,#f2d388,#bc8037);
+  box-shadow:0 0 40px rgba(215,173,99,.22);
+}
+.tt-auth-cinematic.tt-auth-success .tt-auth-success-card{display:block}
+.tt-auth-cinematic.tt-auth-success .tt-auth-panel>h3,
+.tt-auth-cinematic.tt-auth-success .tt-auth-panel>p,
+.tt-auth-cinematic.tt-auth-success .tt-auth-panel>.auth-tabs,
+.tt-auth-cinematic.tt-auth-success .tt-auth-panel>form{display:none!important}
 .tt-auth-confetti{
   position:absolute;
-  z-index:20;
-  width:5px;
-  height:10px;
+  z-index:40;
+  width:5px;height:10px;
   border-radius:2px;
-  background:var(--tt-auth-gold2);
+  background:#ebc870;
   pointer-events:none;
-  animation:ttConfetti 1.25s ease-out forwards;
+  animation:ttConfetti 1.35s ease-out forwards;
 }
-.tt-auth-cinematic.tt-auth-replay .tt-auth-avatar-wrap,
-.tt-auth-cinematic.tt-auth-replay .tt-auth-panel,
-.tt-auth-cinematic.tt-auth-replay .tt-auth-case{animation:none}
-.tt-auth-cinematic.tt-auth-replay.tt-auth-run .tt-auth-avatar-wrap{
-  animation:ttWalkIn 1.65s cubic-bezier(.16,.78,.22,1) both,ttIdle 4s ease-in-out 1.7s infinite;
+#programare .steps{
+  position:relative;
 }
-.tt-auth-cinematic.tt-auth-replay.tt-auth-run .tt-auth-panel{
-  animation:ttFormIn .72s .24s cubic-bezier(.2,.82,.25,1) both;
-}
-.tt-auth-cinematic.tt-auth-replay.tt-auth-run .tt-auth-case{
-  animation:ttCaseDrop 1.25s .45s cubic-bezier(.18,.85,.22,1.2) both;
+#programare .steps::before{
+  content:"";
+  position:absolute;
+  left:22px;
+  top:35px;
+  bottom:35px;
+  width:1px;
+  background:linear-gradient(rgba(215,173,99,.12),rgba(215,173,99,.40),rgba(215,173,99,.12));
 }
 #programare .steps .step{
   position:relative;
-  padding:9px 10px;
-  margin-inline:-10px;
-  border-radius:14px;
-  transition:background .35s ease,transform .35s ease,opacity .35s ease;
+  display:grid!important;
+  grid-template-columns:54px 58px 1fr!important;
+  align-items:center;
+  gap:14px!important;
+  min-height:112px;
+  padding:15px 18px 15px 0!important;
+  margin:0 0 7px!important;
+  border:1px solid transparent;
+  border-radius:20px;
+  transition:.38s ease;
 }
-#programare .steps .step::after{
+#programare .steps .step::before{
   content:"";
-  position:absolute;
-  left:0;
-  top:18%;
-  bottom:18%;
-  width:2px;
-  border-radius:2px;
-  background:linear-gradient(var(--tt-auth-gold2),var(--tt-auth-rose));
-  opacity:0;
-  transform:scaleY(.2);
-  transition:.35s ease;
+  position:relative;
+  z-index:2;
+  grid-column:1;
+  width:46px;height:46px;
+  display:grid;
+  place-items:center;
+  margin-left:0;
+  border:1px solid rgba(216,175,99,.14);
+  border-radius:14px;
+  background:rgba(62,37,27,.35);
+  color:#d8ae61;
+  font-size:20px;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.035);
 }
+#programare .steps .step:nth-child(1)::before{content:"✂"}
+#programare .steps .step:nth-child(2)::before{content:"◫"}
+#programare .steps .step:nth-child(3)::before{content:"☕";font-size:17px}
+#programare .steps .step .step-num{
+  grid-column:2;
+  align-self:start;
+  margin-top:6px;
+  color:#cda55d!important;
+  font-size:29px!important;
+}
+#programare .steps .step>div:last-child{
+  grid-column:3;
+}
+#programare .steps .step h4{margin:0 0 6px!important}
+#programare .steps .step p{margin:0!important}
 #programare .steps .step.tt-step-active{
-  background:linear-gradient(90deg,rgba(201,166,107,.08),transparent);
+  border-color:rgba(228,188,111,.26);
+  background:
+    linear-gradient(90deg,rgba(109,61,38,.54),rgba(73,42,31,.16));
   transform:translateX(6px);
+  box-shadow:0 18px 40px rgba(0,0,0,.13),inset 0 1px 0 rgba(255,255,255,.035);
 }
-#programare .steps .step.tt-step-active::after{opacity:1;transform:scaleY(1)}
+#programare .steps .step.tt-step-active::before{
+  color:#2a160e;
+  border-color:#e2ba70;
+  background:linear-gradient(145deg,#efc978,#a76c2b);
+  box-shadow:0 0 26px rgba(222,174,85,.26);
+}
 #programare .steps .step.tt-step-active .step-num{
-  color:var(--tt-auth-gold2);
-  text-shadow:0 0 18px rgba(201,166,107,.28);
+  color:#f0ca7b!important;
+  text-shadow:0 0 18px rgba(215,173,99,.18);
 }
-@keyframes ttWalkIn{
-  0%{opacity:0;transform:translate3d(-170px,4px,0) scale(.96)}
-  16%{opacity:1}
-  68%{transform:translate3d(12px,-2px,0) scale(1.01)}
-  84%{transform:translate3d(-4px,0,0)}
-  100%{opacity:1;transform:none}
+@keyframes ttPanelIn{
+  from{opacity:0;transform:translateX(55px) scale(.98);filter:blur(8px)}
+  to{opacity:1;transform:none;filter:none}
 }
-@keyframes ttIdle{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
-@keyframes ttLegA{from{transform:rotate(10deg)}to{transform:rotate(-10deg)}}
-@keyframes ttLegB{from{transform:rotate(-10deg)}to{transform:rotate(10deg)}}
-@keyframes ttArmA{from{transform:rotate(-9deg)}to{transform:rotate(9deg)}}
-@keyframes ttArmB{from{transform:rotate(9deg)}to{transform:rotate(-9deg)}}
-@keyframes ttHairSwing{0%,100%{transform:rotate(-2deg)}50%{transform:rotate(4deg)}}
-@keyframes ttHalo{0%,100%{transform:scale(.98);opacity:.55}50%{transform:scale(1.035);opacity:.9}}
-@keyframes ttSpark{0%,100%{opacity:.12;transform:translateY(4px) scale(.7)}50%{opacity:.9;transform:translateY(-10px) scale(1.25)}}
-@keyframes ttFormIn{0%{opacity:0;transform:translate3d(70px,0,0) scale(.97);filter:blur(8px)}100%{opacity:1;transform:none;filter:none}}
-@keyframes ttFieldIn{to{opacity:1;transform:none}}
-@keyframes ttCaseDrop{0%{opacity:0;transform:translate3d(115px,-80px,0) rotate(18deg)}65%{opacity:1;transform:translate3d(-6px,7px,0) rotate(-5deg)}82%{transform:translate3d(3px,-5px,0) rotate(2deg)}100%{opacity:1;transform:none}}
-@keyframes ttPanelSweep{0%,18%{left:-55%;opacity:0}30%{opacity:.7}52%{left:135%;opacity:0}100%{left:135%;opacity:0}}
-@keyframes ttButtonSweep{0%,72%{left:-40%;opacity:0}80%{opacity:.8}94%{left:125%;opacity:0}100%{left:125%;opacity:0}}
-@keyframes ttSmilePop{0%{transform:scaleY(.4)}55%{transform:scaleY(1.4)}100%{transform:scaleY(1)}}
-@keyframes ttConfetti{0%{opacity:1;transform:translate(0,0) rotate(0)}100%{opacity:0;transform:translate(var(--cx),var(--cy)) rotate(420deg)}}
-@media(max-width:780px){
+@keyframes ttSceneSweep{
+  0%,18%{left:-42%;opacity:0}
+  30%{opacity:.65}
+  54%{left:135%;opacity:0}
+  100%{left:135%;opacity:0}
+}
+@keyframes ttLogoPulse{
+  0%,100%{transform:scale(.98);opacity:.72}
+  50%{transform:scale(1.025);opacity:1}
+}
+@keyframes ttButtonSweep{
+  0%,72%{left:-40%;opacity:0}
+  80%{opacity:.85}
+  94%{left:125%;opacity:0}
+  100%{left:125%;opacity:0}
+}
+@keyframes ttConfetti{
+  0%{opacity:1;transform:translate(0,0) rotate(0)}
+  100%{opacity:0;transform:translate(var(--cx),var(--cy)) rotate(480deg)}
+}
+@media(max-width:980px){
   .tt-auth-layout{
     grid-template-columns:1fr;
     min-height:0;
-    border-radius:24px;
+  }
+  .tt-auth-progress{
+    width:auto;
+    left:20px;right:20px;top:18px;
   }
   .tt-auth-scene{
-    min-height:220px;
-    height:220px;
-    padding:46px 16px 12px;
+    min-height:430px;
     border-right:0;
     border-bottom:1px solid rgba(255,255,255,.05);
   }
-  .tt-auth-scene::before{width:170px;height:170px;top:28px}
-  .tt-auth-avatar-wrap{width:130px;margin-bottom:0}
-  .tt-auth-brand{top:13px;left:15px;font-size:8px}
-  .tt-auth-brand .tt-brand-mark{width:34px;height:34px}
-  .tt-auth-case{width:48px;height:35px;right:24%;bottom:16px}
-  .tt-auth-case::before{width:20px;height:9px;left:10px;top:-10px}
-  .tt-auth-panel{margin:0;padding:22px 17px;border-radius:0 0 23px 23px}
-  .tt-auth-panel .auth-tabs button{min-height:42px;font-size:12px}
+  .tt-auth-panel{
+    margin:18px;
+    min-height:0;
+  }
+  .tt-scene-logo{top:72px}
+}
+@media(max-width:650px){
+  .tt-auth-layout{border-radius:25px}
+  .tt-auth-progress{
+    gap:8px;
+    left:14px;right:14px;top:13px;
+  }
+  .tt-progress-step{font-size:8px;gap:5px}
+  .tt-progress-step b{width:26px;height:26px;font-size:9px}
+  .tt-progress-step:not(:last-child)::after{width:10px}
+  .tt-auth-scene{min-height:360px}
+  .tt-scene-brand{top:52px;left:14px;font-size:7.5px}
+  .tt-scene-brand img{width:36px;height:36px}
+  .tt-scene-logo{width:130px;top:76px}
+  .tt-scene-logo img{width:82px;height:82px}
+  .tt-gift-bag{width:68px;height:82px;bottom:59px;left:10%}
+  .tt-gift-bag::before{width:34px;height:20px;left:15px;top:-17px}
+  .tt-scene-caption{left:15px;right:15px;bottom:15px}
+  .tt-scene-caption strong{font-size:19px}
+  .tt-scene-caption small{font-size:8.5px}
+  .tt-scene-status{display:none}
+  .tt-auth-panel{margin:12px;padding:25px 17px 21px;border-radius:22px}
+  .tt-auth-panel h3{font-size:31px!important}
+  .tt-auth-panel>p{font-size:12px!important}
+  #programare .steps .step{
+    grid-template-columns:44px 48px 1fr!important;
+    gap:10px!important;
+    min-height:100px;
+  }
+  #programare .steps .step::before{width:38px;height:38px;border-radius:12px}
+  #programare .steps::before{left:18px}
 }
 @media(prefers-reduced-motion:reduce){
-  .tt-auth-avatar-wrap,.tt-auth-avatar *,.tt-auth-case,.tt-auth-spark,.tt-auth-panel,
-  .tt-auth-panel::before,.tt-auth-panel button::after,.tt-auth-scene::before,.tt-auth-confetti{
+  .tt-auth-panel,.tt-auth-scene::after,.tt-scene-logo,.tt-auth-panel button::after,.tt-auth-confetti{
     animation:none!important;
   }
-}
-/* v3 — more realistic stylist + correct password eye-cover */
-.tt-auth-avatar-wrap{width:min(292px,90%)}
-.tt-auth-avatar{filter:drop-shadow(0 22px 28px rgba(0,0,0,.36))}
-.tt-auth-avatar .tt-face-group,
-.tt-auth-avatar .tt-hair-main,
-.tt-auth-avatar .tt-torso{
-  transform-box:fill-box;
-  transform-origin:center;
-}
-.tt-auth-avatar .tt-chest{
-  transform-box:fill-box;
-  transform-origin:center bottom;
-  animation:ttBreath 4.6s ease-in-out infinite;
-}
-.tt-auth-avatar .tt-eye-l,
-.tt-auth-avatar .tt-eye-r{
-  transform-box:fill-box;
-  transform-origin:center;
-  animation:ttBlink 6.6s ease-in-out infinite;
-}
-.tt-auth-avatar .tt-eye-r{animation-delay:.04s}
-.tt-auth-avatar .tt-cover-hands{
-  opacity:0;
-  transform:translateY(22px) scale(.92);
-  transform-origin:center;
-  transition:opacity .24s ease,transform .42s cubic-bezier(.18,.78,.22,1);
-}
-.tt-auth-avatar .tt-normal-arms{
-  opacity:1;
-  transition:opacity .18s ease;
-}
-.tt-auth-character.is-password .tt-normal-arms{
-  opacity:.12;
-}
-.tt-auth-character.is-password .tt-cover-hands{
-  opacity:1;
-  transform:translateY(0) scale(1);
-}
-.tt-auth-character.is-password .tt-eye-l,
-.tt-auth-character.is-password .tt-eye-r{
-  animation:none!important;
-  transform:scaleY(.35);
-}
-.tt-auth-character.is-password .tt-arm-l,
-.tt-auth-character.is-password .tt-arm-r{
-  transform:none!important;
-  animation:none!important;
-}
-.tt-auth-avatar .tt-earring{
-  transform-box:fill-box;
-  transform-origin:50% 0%;
-  animation:ttEarring 3.2s ease-in-out infinite;
-}
-.tt-auth-avatar .tt-hair-highlight{
-  opacity:.38;
-}
-.tt-auth-avatar .tt-cheek{
-  opacity:.34;
-}
-@keyframes ttBreath{
-  0%,100%{transform:scaleY(1)}
-  50%{transform:scaleY(1.012)}
-}
-@keyframes ttBlink{
-  0%,46%,50%,100%{transform:scaleY(1)}
-  48%{transform:scaleY(.12)}
-}
-@keyframes ttEarring{
-  0%,100%{transform:rotate(-2deg)}
-  50%{transform:rotate(3deg)}
-}
-@media(max-width:780px){
-  .tt-auth-avatar-wrap{width:145px}
 }
