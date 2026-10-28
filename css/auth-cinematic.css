@@ -684,3 +684,10 @@
     animation:none!important;
   }
 }
+/* v5 — login mode: show only email + password */
+.tt-auth-panel #registerIdentityFields.hidden{
+  display:none!important;
+}
+.tt-auth-panel #registerIdentityFields:not(.hidden){
+  display:grid!important;
+}
