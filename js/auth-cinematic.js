@@ -17,6 +17,34 @@
     '</div>';
   }
 
+  function hydrateConciergeHD(scene){
+    var photo=scene&&scene.querySelector('.tt-concierge-photo');
+    if(!photo||photo.dataset.hdLoading==='1'||photo.dataset.hdReady==='1')return;
+    photo.dataset.hdLoading='1';
+    var urls=Array.from({length:9},function(_,i){return 'assets/concierge/v1/part'+i+'.txt?v=1';});
+    Promise.all(urls.map(function(url){
+      return fetch(url,{cache:'force-cache'}).then(function(r){
+        if(!r.ok)throw new Error('HD chunk '+r.status);
+        return r.text();
+      });
+    })).then(function(parts){
+      var base64=parts.join('').replace(/\s+/g,'');
+      if(base64.length!==69152)throw new Error('HD length '+base64.length);
+      var src='data:image/webp;base64,'+base64;
+      var probe=new Image();
+      probe.onload=function(){
+        photo.src=src;
+        photo.dataset.hdReady='1';
+        photo.dataset.hdLoading='0';
+        scene.classList.add('tt-hd-ready');
+      };
+      probe.onerror=function(){photo.dataset.hdLoading='0';};
+      probe.src=src;
+    }).catch(function(){
+      photo.dataset.hdLoading='0';
+    });
+  }
+
   function progressMarkup(){
     return '<div class="tt-auth-progress" aria-label="Progres">'+
       '<div class="tt-progress-step is-active" data-tt-progress="1"><b>1</b><span data-ro="Cont" data-ru="Аккаунт">Cont</span></div>'+
@@ -120,6 +148,7 @@
     var scene=document.createElement('div');
     scene.className='tt-auth-scene';
     scene.innerHTML=sceneMarkup();
+    hydrateConciergeHD(scene);
 
     var layout=document.createElement('div');
     layout.className='tt-auth-layout';
