@@ -765,3 +765,28 @@
   transform:none!important;
   scale:1!important;
 }
+
+/* v9 — validated HD concierge: subtle motion only after successful preload */
+.tt-auth-scene.tt-hd-ready .tt-concierge-photo{
+  object-position:center center!important;
+  filter:saturate(.98) contrast(1.025) brightness(.82)!important;
+  animation:ttConciergeHDDrift 8s ease-in-out infinite alternate!important;
+  transform-origin:50% 50%!important;
+  will-change:transform;
+}
+.tt-auth-scene.tt-hd-ready .tt-auth-character.is-engaged .tt-concierge-photo{
+  animation-play-state:paused!important;
+  transform:scale(1.012) translateY(-2px)!important;
+}
+.tt-auth-scene.tt-hd-ready .tt-auth-character.is-password .tt-concierge-photo{
+  animation-play-state:paused!important;
+  transform:scale(1.008)!important;
+  filter:saturate(.88) contrast(1.02) brightness(.70) blur(.35px)!important;
+}
+@keyframes ttConciergeHDDrift{
+  from{transform:scale(1.002) translate3d(0,0,0)}
+  to{transform:scale(1.014) translate3d(0,-3px,0)}
+}
+@media(prefers-reduced-motion:reduce){
+  .tt-auth-scene.tt-hd-ready .tt-concierge-photo{animation:none!important;transform:none!important}
+}
