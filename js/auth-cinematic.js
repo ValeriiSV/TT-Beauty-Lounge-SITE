@@ -8,10 +8,10 @@
 
   function sceneMarkup(){
     return '<div class="tt-auth-character">'+
-      '<img class="tt-concierge-photo" src="images/tataru-tatiana.jpeg" alt="Tatiana — TT Beauty Lounge">'+
+      '<img class="tt-concierge-photo" src="images/tt-concierge-exact.jpg?v=1" alt="TT Beauty Concierge">'+
       
       '<div class="tt-scene-brand"><span>TT Beauty Concierge</span></div>'+
-      '<div class="tt-gift-bag" aria-hidden="true"></div>'+
+      
       '<div class="tt-privacy-veil" aria-hidden="true"></div>'+
       '<div class="tt-scene-caption"><div><strong>Frumusețe cu grijă.</strong><small>Experiență personalizată · Chișinău</small></div><span class="tt-scene-status">online</span></div>'+
     '</div>';
@@ -130,17 +130,33 @@
 
     syncLang(root);
     var character=scene.querySelector('.tt-auth-character');
+    var sceneEl=scene;
+    var finePointer=window.matchMedia&&window.matchMedia('(pointer:fine)').matches;
+    var reduceMotion=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if(finePointer&&!reduceMotion){
+      sceneEl.addEventListener('pointermove',function(e){
+        var r=sceneEl.getBoundingClientRect();
+        var x=(e.clientX-r.left)/r.width-.5;
+        var y=(e.clientY-r.top)/r.height-.5;
+        sceneEl.style.setProperty('--tt-px',(x*10).toFixed(2)+'px');
+        sceneEl.style.setProperty('--tt-py',(y*8).toFixed(2)+'px');
+      });
+      sceneEl.addEventListener('pointerleave',function(){
+        sceneEl.style.setProperty('--tt-px','0px');
+        sceneEl.style.setProperty('--tt-py','0px');
+      });
+    }
     var password=panel.querySelector('#accountPassword,input[type="password"]');
     var inputs=[].slice.call(panel.querySelectorAll('input,select,textarea'));
 
     inputs.forEach(function(input){
       input.addEventListener('focus',function(){
-        character.classList.toggle('is-password',input===password);
+        character.classList.toggle('is-password',input===password); character.classList.add('is-engaged');
         setProgress(root,1);
         setStep(input===password?2:1);
       });
       input.addEventListener('blur',function(){
-        if(input===password)character.classList.remove('is-password');
+        if(input===password)character.classList.remove('is-password'); character.classList.remove('is-engaged');
       });
     });
 
