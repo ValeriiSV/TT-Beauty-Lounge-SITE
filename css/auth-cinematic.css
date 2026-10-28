@@ -750,3 +750,18 @@
 @media(prefers-reduced-motion:reduce){
   .tt-concierge-photo{animation:none!important;transform:none!important}
 }
+
+/* emergency stable portrait render */
+.tt-concierge-photo{
+  object-fit:cover!important;
+  object-position:center 35%!important;
+  transform:none!important;
+  scale:1!important;
+  filter:saturate(.95) contrast(1.02) brightness(.82)!important;
+  animation:none!important;
+}
+.tt-auth-character.is-engaged .tt-concierge-photo,
+.tt-auth-character.is-password .tt-concierge-photo{
+  transform:none!important;
+  scale:1!important;
+}
