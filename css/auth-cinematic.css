@@ -691,3 +691,17 @@
 .tt-auth-panel #registerIdentityFields:not(.hidden){
   display:grid!important;
 }
+
+/* v6 — keep owner photo clean, no logo overlays */
+.tt-scene-logo{display:none!important}
+.tt-scene-brand{
+  left:26px!important;
+  top:26px!important;
+  padding:8px 12px;
+  border:1px solid rgba(229,192,123,.16);
+  border-radius:999px;
+  background:rgba(24,12,8,.28);
+  -webkit-backdrop-filter:blur(12px);
+  backdrop-filter:blur(12px);
+}
+.tt-scene-brand img{display:none!important}
