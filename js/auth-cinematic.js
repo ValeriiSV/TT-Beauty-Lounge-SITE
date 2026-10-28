@@ -9,8 +9,8 @@
   function sceneMarkup(){
     return '<div class="tt-auth-character">'+
       '<img class="tt-concierge-photo" src="images/tataru-tatiana.jpeg" alt="Tatiana — TT Beauty Lounge">'+
-      '<div class="tt-scene-logo"><img src="images/tt-beauty-lounge-logo-new.webp?v=3" alt=""></div>'+
-      '<div class="tt-scene-brand"><img src="images/tt-beauty-lounge-logo-new.webp?v=3" alt=""><span>TT Beauty Concierge</span></div>'+
+      
+      '<div class="tt-scene-brand"><span>TT Beauty Concierge</span></div>'+
       '<div class="tt-gift-bag" aria-hidden="true"></div>'+
       '<div class="tt-privacy-veil" aria-hidden="true"></div>'+
       '<div class="tt-scene-caption"><div><strong>Frumusețe cu grijă.</strong><small>Experiență personalizată · Chișinău</small></div><span class="tt-scene-status">online</span></div>'+
