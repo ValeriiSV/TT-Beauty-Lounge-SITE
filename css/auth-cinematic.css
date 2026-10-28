@@ -705,3 +705,48 @@
   backdrop-filter:blur(12px);
 }
 .tt-scene-brand img{display:none!important}
+
+/* v7 — exact concierge from approved mockup + animated camera */
+.tt-auth-scene{
+  --tt-px:0px;
+  --tt-py:0px;
+}
+.tt-concierge-photo{
+  object-position:center center!important;
+  transform-origin:50% 50%!important;
+  transform:translate3d(var(--tt-px),var(--tt-py),0) scale(1.055)!important;
+  filter:saturate(.96) contrast(1.035) brightness(.80)!important;
+  animation:ttConciergeCamera 7.5s ease-in-out infinite alternate;
+  transition:transform .42s cubic-bezier(.2,.75,.2,1),filter .45s ease!important;
+  will-change:transform;
+}
+.tt-auth-character.is-engaged .tt-concierge-photo{
+  transform:translate3d(var(--tt-px),calc(var(--tt-py) - 5px),0) scale(1.075)!important;
+  filter:saturate(1) contrast(1.04) brightness(.84)!important;
+}
+.tt-auth-character.is-password .tt-concierge-photo{
+  transform:translate3d(var(--tt-px),var(--tt-py),0) scale(1.07)!important;
+  filter:saturate(.84) contrast(1.02) brightness(.68) blur(.4px)!important;
+}
+.tt-gift-bag{display:none!important}
+.tt-auth-scene::before{
+  background:
+    linear-gradient(180deg,rgba(13,6,4,.10) 0%,rgba(15,7,4,.01) 45%,rgba(13,6,4,.38) 100%),
+    linear-gradient(90deg,rgba(23,11,7,.20) 0%,transparent 32%,transparent 74%,rgba(17,8,5,.16) 100%)!important;
+}
+.tt-scene-caption{
+  background:linear-gradient(90deg,rgba(22,11,7,.42),rgba(22,11,7,.12));
+  border:1px solid rgba(227,187,111,.14);
+  border-radius:16px;
+  padding:11px 12px;
+  -webkit-backdrop-filter:blur(12px);
+  backdrop-filter:blur(12px);
+}
+@keyframes ttConciergeCamera{
+  0%{translate:0 0;scale:1}
+  50%{translate:0 -3px;scale:1.008}
+  100%{translate:0 2px;scale:1.014}
+}
+@media(prefers-reduced-motion:reduce){
+  .tt-concierge-photo{animation:none!important;transform:none!important}
+}
