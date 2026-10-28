@@ -8,7 +8,7 @@
 
   function sceneMarkup(){
     return '<div class="tt-auth-character">'+
-      '<img class="tt-concierge-photo" src="images/tt-concierge-hq.jpg?v=1" alt="TT Beauty Concierge">'+
+      '<img class="tt-concierge-photo" src="images/tt-concierge-exact.jpg?v=3" alt="TT Beauty Concierge">'+
       
       '<div class="tt-scene-brand"><span>TT Beauty Concierge</span></div>'+
       
